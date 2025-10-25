@@ -1,0 +1,670 @@
+// mobile menu toggle
+const hamburgerBtn = document.getElementById("hamburgerBtn");
+const closeMenuBtn = document.getElementById("closeMenuBtn");
+const mobileMenu = document.getElementById("mobileMenu");
+
+// all nav links inside mobile menu for auto-close on click
+const mobileLinks = document.querySelectorAll(".mobile-link");
+
+// open
+hamburgerBtn.addEventListener("click", () => {
+  mobileMenu.classList.add("open");
+  hamburgerBtn.setAttribute("aria-expanded", "true");
+  mobileMenu.setAttribute("aria-hidden", "false");
+});
+
+// close
+function closeMobileMenu() {
+  mobileMenu.classList.remove("open");
+  hamburgerBtn.setAttribute("aria-expanded", "false");
+  mobileMenu.setAttribute("aria-hidden", "true");
+}
+
+closeMenuBtn.addEventListener("click", closeMobileMenu);
+
+mobileLinks.forEach((link) => {
+  link.addEventListener("click", closeMobileMenu);
+});
+
+// OPTIONAL: add shadow to header on scroll for subtle depth
+const headerEl = document.getElementById("header");
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 8) {
+    headerEl.style.boxShadow = "0 2px 8px rgba(0,0,0,0.06)";
+  } else {
+    headerEl.style.boxShadow = "0 1px 0 rgba(0,0,0,0.05)";
+  }
+});
+
+// COUNTER NUMBERS SCRIPT START
+// -------- IMPACT COUNTERS --------
+
+// helper: format large numbers (e.g. 1000000 -> "1M")
+function formatNumber(n, hasPercent) {
+  if (n >= 1000000) {
+    // turn 1000000 -> "1M"
+    const millions = n / 1000000;
+    // keep no decimals for clean look like "1M", "9M"
+    return millions.toFixed(millions % 1 === 0 ? 0 : 1) + "M";
+  }
+
+  // add commas for readability e.g. 4900 -> "4,900"
+  const withCommas = n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+  if (hasPercent) return withCommas; // % symbol is already in DOM as suffix
+  return withCommas;
+}
+
+// animate one counter
+function animateCounter(el) {
+  const target = parseInt(el.getAttribute("data-target"), 10);
+  const isPercent = el.textContent.trim().endsWith("%"); // check initial content design
+  const duration = 1500; // ms
+  const startTime = performance.now();
+
+  function update(now) {
+    const progress = Math.min((now - startTime) / duration, 1);
+    const currentVal = Math.floor(progress * target);
+
+    el.firstChild.nodeValue = formatNumber(
+      progress === 1 ? target : currentVal,
+      isPercent
+    );
+
+    if (progress < 1) {
+      requestAnimationFrame(update);
+    }
+  }
+
+  requestAnimationFrame(update);
+}
+
+// observe when impact-card enters viewport
+const impactSection = document.querySelector(".impact-card");
+let countersStarted = false;
+
+if (impactSection) {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && !countersStarted) {
+          countersStarted = true;
+
+          document
+            .querySelectorAll(".impact-value")
+            .forEach((counterEl) => animateCounter(counterEl));
+        }
+      });
+    },
+    { threshold: 0.3 }
+  );
+
+  observer.observe(impactSection);
+}
+
+
+// WHAT WE DO SECTION 
+const items = document.querySelectorAll(".whatwedo-accordion-item");
+const displayImage = document.querySelector(".whatwedo-accordion-image");
+
+// Function to close all accordions
+function closeAllAccordions() {
+  items.forEach((el) => {
+    el.classList.remove("active");
+    el.querySelector(".icon").textContent = "+";
+  });
+}
+
+items.forEach((item) => {
+  item.addEventListener("click", (event) => {
+    const isActive = item.classList.contains("active");
+
+    // If clicked on an already open item → close it
+    if (isActive) {
+      item.classList.remove("active");
+      item.querySelector(".icon").textContent = "+";
+      return;
+    }
+
+    // Otherwise close all and open clicked one
+    closeAllAccordions();
+    item.classList.add("active");
+    item.querySelector(".icon").textContent = "−";
+
+    // Change image
+    const newImage = item.getAttribute("data-image");
+    displayImage.classList.remove("active");
+    setTimeout(() => {
+      displayImage.src = `assets/images/${newImage}`;
+      displayImage.classList.add("active");
+    }, 200);
+
+    event.stopPropagation(); // prevent outside click trigger
+  });
+
+  // Double-click to close too
+  item.addEventListener("dblclick", (event) => {
+    item.classList.remove("active");
+    item.querySelector(".icon").textContent = "+";
+    event.stopPropagation();
+  });
+});
+
+// Close accordion if clicked outside
+document.addEventListener("click", (event) => {
+  const accordionArea = document.querySelector(".whatwedo-accordion-container");
+  if (!accordionArea.contains(event.target)) {
+    closeAllAccordions();
+  }
+});
+
+// WHAT WE DO SECTION SCRIPT START
+// slider logic for all pillars
+document.querySelectorAll(".pillar-slider").forEach((slider) => {
+  const track = slider.querySelector(".slider-track");
+  const dots = slider.querySelectorAll(".dot");
+
+  let currentIndex = 0;
+
+  function goToSlide(index) {
+    currentIndex = index;
+    const offsetPercent = currentIndex * -100;
+    track.style.transform = `translateX(${offsetPercent}%)`;
+
+    dots.forEach((d, i) => {
+      d.classList.toggle("active", i === currentIndex);
+    });
+  }
+
+  // click on dots
+  dots.forEach((dot, i) => {
+    dot.addEventListener("click", () => {
+      goToSlide(i);
+    });
+  });
+
+  // optional: swipe support for mobile
+  let startX = 0;
+  let isDown = false;
+
+  track.addEventListener("touchstart", (e) => {
+    isDown = true;
+    startX = e.touches[0].clientX;
+  });
+
+  track.addEventListener("touchmove", (e) => {
+    if (!isDown) return;
+    const diff = e.touches[0].clientX - startX;
+    // no drag transform preview here (keeps code simple/stable)
+    // could add if you want smooth drag preview
+  });
+
+  track.addEventListener("touchend", (e) => {
+    if (!isDown) return;
+    isDown = false;
+    const endX = e.changedTouches[0].clientX;
+    const diff = endX - startX;
+
+    if (diff < -40 && currentIndex < dots.length - 1) {
+      // swipe left -> next
+      goToSlide(currentIndex + 1);
+    } else if (diff > 40 && currentIndex > 0) {
+      // swipe right -> prev
+      goToSlide(currentIndex - 1);
+    }
+  });
+
+  // init first slide
+  goToSlide(0);
+});
+// WHAT WE DO SECTION SCRIPT END
+
+
+  // <!-- OUR ROCESS SECTION SCRIPT START -->
+const phaseButtons = document.querySelectorAll(".process-phase");
+
+const step1Title = document.getElementById("step1-title");
+const step1Desc  = document.getElementById("step1-desc");
+const step2Title = document.getElementById("step2-title");
+const step2Desc  = document.getElementById("step2-desc");
+const step3Title = document.getElementById("step3-title");
+const step3Desc  = document.getElementById("step3-desc");
+
+phaseButtons.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    // 1. Visually set active state on left cards
+    phaseButtons.forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+
+    // 2. Pull data-* from clicked button
+    const s1t = btn.getAttribute("data-step1-title");
+    const s1d = btn.getAttribute("data-step1-desc");
+    const s2t = btn.getAttribute("data-step2-title");
+    const s2d = btn.getAttribute("data-step2-desc");
+    const s3t = btn.getAttribute("data-step3-title");
+    const s3d = btn.getAttribute("data-step3-desc");
+
+    // 3. Update right column
+    step1Title.textContent = s1t;
+    step1Desc.textContent  = s1d;
+    step2Title.textContent = s2t;
+    step2Desc.textContent  = s2d;
+    step3Title.textContent = s3t;
+    step3Desc.textContent  = s3d;
+  });
+});
+  // <!-- OUR ROCESS SECTION SCRIPT END -->
+
+// SETUP CHECK-LIST SECTION script start
+
+// ===================== DESKTOP SLIDER LOGIC ===================== //
+const track = document.getElementById("checklistTrack");
+const cards = track ? Array.from(track.querySelectorAll(".checklist-card")) : [];
+const prevBtn = document.getElementById("prevBtn");
+const nextBtn = document.getElementById("nextBtn");
+
+let currentIndex = 0;
+
+function updateSlider() {
+  if (!track) return;
+
+  track.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+  cards.forEach((card, i) => {
+    if (i === currentIndex) {
+      card.classList.add("active");
+      card.classList.remove("ghost");
+      card.style.pointerEvents = "auto";
+    } else {
+      card.classList.remove("active");
+      card.classList.add("ghost");
+      card.style.pointerEvents = "none";
+    }
+  });
+
+  if (prevBtn) prevBtn.disabled = currentIndex === 0;
+  if (nextBtn) nextBtn.disabled = currentIndex === cards.length - 1;
+}
+
+if (prevBtn && nextBtn) {
+  prevBtn.addEventListener("click", () => {
+    if (currentIndex > 0) {
+      currentIndex -= 1;
+      updateSlider();
+    }
+  });
+
+  nextBtn.addEventListener("click", () => {
+    if (currentIndex < cards.length - 1) {
+      currentIndex += 1;
+      updateSlider();
+    }
+  });
+
+  updateSlider();
+}
+
+
+// ===================== MOBILE OVERLAY LOGIC ===================== //
+const overlay = document.getElementById("mobileDetailOverlay");
+const panel = document.getElementById("mobileDetailPanel");
+const closeBtn = document.getElementById("mobileCloseBtn");
+const contentBox = document.getElementById("mobileDetailContent");
+
+// the data for mobile detail views
+const mobileDetailsData = {
+  initial: {
+    icon: "📄➕",
+    title: "Initial Requirements",
+    sections: [
+      {
+        heading: "Brand Understanding",
+        body: [
+          "Review brand guidelines, references, and preferred content formats to align with brand identity."
+        ]
+      },
+      {
+        heading: "Login Management",
+        body: [
+          "Organize and secure all login credentials for streamlined access."
+        ]
+      },
+      {
+        heading: "Profile Optimization",
+        body: [
+          "Optimize key elements of social media profiles:"
+        ],
+        bullets: [
+          "<strong>Bio:</strong> Ensure consistency & relevance to the brand.",
+          "<strong>Captions:</strong> Establish tone and style for brand voice.",
+          "<strong>Highlights:</strong> Curate highlights that showcase key brand content."
+        ]
+      }
+    ]
+  },
+
+  final: {
+    icon: "📘📊",
+    title: "Final Requirements",
+    sections: [
+      {
+        heading: "Access & Assets",
+        body: [
+          "Share all social handles, ad accounts, and brand folders.",
+          "Provide past campaign creatives and performance reports."
+        ]
+      },
+      {
+        heading: "Content Inputs",
+        body: [
+          "Core USPs, product shots, testimonial material.",
+          "Founder / team presence for face-of-brand content."
+        ]
+      },
+      {
+        heading: "Expectations & Goals",
+        body: [
+          "Growth targets (reach, followers, leads, etc.).",
+          "Priority platforms + timelines for launch."
+        ]
+      }
+    ]
+  }
+};
+
+// build the HTML for the overlay content
+function buildMobileDetailHTML(data) {
+  let html = `
+    <div class="detail-header-icon">${data.icon}</div>
+    <h3 class="detail-title">${data.title}</h3>
+  `;
+
+  data.sections.forEach(section => {
+    html += `
+      <div class="mobile-detail-block">
+        <h4>
+          <span class="green-check">✔</span>
+          <span>${section.heading}</span>
+        </h4>
+    `;
+
+    if (section.body && section.body.length) {
+      section.body.forEach(p => {
+        html += `<p>${p}</p>`;
+      });
+    }
+
+    if (section.bullets && section.bullets.length) {
+      html += `<ul>`;
+      section.bullets.forEach(b => {
+        html += `
+          <li>
+            <span class="green-check">✔</span>
+            <span>${b}</span>
+          </li>`;
+      });
+      html += `</ul>`;
+    }
+
+    html += `</div>`;
+  });
+
+  return html;
+}
+
+function openMobileDetail(which) {
+  const data = mobileDetailsData[which];
+  if (!data) return;
+
+  // inject content
+  contentBox.innerHTML = buildMobileDetailHTML(data);
+
+  // show overlay
+  overlay.classList.add("active");
+
+  // focus for a11y
+  panel.focus();
+}
+
+function closeMobileDetail() {
+  overlay.classList.remove("active");
+}
+
+// click handlers for each mobile card arrow
+document.querySelectorAll(".mobile-card-arrow").forEach(btn => {
+  btn.addEventListener("click", e => {
+    const which = btn.getAttribute("data-detail"); // "initial" or "final"
+    openMobileDetail(which);
+  });
+});
+
+// close button / click outside
+if (closeBtn) {
+  closeBtn.addEventListener("click", closeMobileDetail);
+}
+if (overlay) {
+  overlay.addEventListener("click", e => {
+    // close if clicking the dimmed area, not the panel
+    if (e.target === overlay) {
+      closeMobileDetail();
+    }
+  });
+}
+
+// SETUP CHECK-LIST SECTION script END
+
+
+// TESTIMONIAL SECTION SCRIPT START
+
+  (function () {
+    const track = document.getElementById("testimonialsTrack");
+    const prevBtn = document.getElementById("testiPrev");
+    const nextBtn = document.getElementById("testiNext");
+
+    // how far are we slid (in pixels)
+    let offset = 0;
+
+    function getCardWidth() {
+      // read first card width incl. gap
+      const firstCard = track.querySelector(".testimonial-card");
+      const cardStyles = window.getComputedStyle(firstCard);
+      const cardWidth = firstCard.getBoundingClientRect().width;
+      const gap = parseFloat(cardStyles.marginRight) || 24; // fallback gap
+      return cardWidth + 24; // 24px ~ our gap (1.5rem)
+    }
+
+    function slideNext() {
+      const step = getCardWidth();
+      const maxOffset =
+        track.scrollWidth - track.parentElement.offsetWidth;
+
+      offset += step;
+      if (offset > maxOffset) {
+        offset = maxOffset; // clamp at end
+      }
+      track.style.transform = `translateX(-${offset}px)`;
+    }
+
+    function slidePrev() {
+      const step = getCardWidth();
+      offset -= step;
+      if (offset < 0) {
+        offset = 0; // clamp at start
+      }
+      track.style.transform = `translateX(-${offset}px)`;
+    }
+
+    nextBtn.addEventListener("click", slideNext);
+    prevBtn.addEventListener("click", slidePrev);
+
+    // optional: drag-to-scroll on desktop/mobile (nice UX)
+    let isDown = false;
+    let startX;
+    let startOffset;
+
+    track.addEventListener("mousedown", (e) => {
+      isDown = true;
+      startX = e.clientX;
+      startOffset = offset;
+      track.style.cursor = "grabbing";
+      e.preventDefault();
+    });
+
+    window.addEventListener("mouseup", () => {
+      isDown = false;
+      track.style.cursor = "default";
+    });
+
+    window.addEventListener("mousemove", (e) => {
+      if (!isDown) return;
+      const dx = e.clientX - startX;
+      offset = startOffset - dx;
+      const maxOffset =
+        track.scrollWidth - track.parentElement.offsetWidth;
+      if (offset < 0) offset = 0;
+      if (offset > maxOffset) offset = maxOffset;
+      track.style.transform = `translateX(-${offset}px)`;
+    });
+
+    // touch support
+    track.addEventListener("touchstart", (e) => {
+      isDown = true;
+      startX = e.touches[0].clientX;
+      startOffset = offset;
+    });
+
+    track.addEventListener("touchend", () => {
+      isDown = false;
+    });
+
+    track.addEventListener("touchmove", (e) => {
+      if (!isDown) return;
+      const dx = e.touches[0].clientX - startX;
+      offset = startOffset - dx;
+      const maxOffset =
+        track.scrollWidth - track.parentElement.offsetWidth;
+      if (offset < 0) offset = 0;
+      if (offset > maxOffset) offset = maxOffset;
+      track.style.transform = `translateX(-${offset}px)`;
+    });
+  })();
+
+
+
+// TESTIMONIAL SECTION SCRIPT END
+
+// FAQ SCRIPT START
+
+// FAQ accordion logic with outside click close
+(function () {
+  const faqItems = document.querySelectorAll(".faq-item");
+
+  function closeAll() {
+    faqItems.forEach((item) => {
+      item.classList.remove("active");
+    });
+  }
+
+  // click question to toggle
+  faqItems.forEach((item) => {
+    const btn = item.querySelector(".faq-question");
+
+    btn.addEventListener("click", (e) => {
+      const isActive = item.classList.contains("active");
+
+      // close others first
+      closeAll();
+
+      // then toggle current if it was not already open
+      if (!isActive) {
+        item.classList.add("active");
+      }
+
+      // stop this click from triggering the "outside" listener below
+      e.stopPropagation();
+    });
+  });
+
+  // click anywhere outside -> close all
+  document.addEventListener("click", (e) => {
+    // if click is NOT inside any faq-item, close
+    const clickedInsideFAQ = e.target.closest(".faq-item");
+    if (!clickedInsideFAQ) {
+      closeAll();
+    }
+  });
+})();
+
+// FAQ SCRIPT END
+
+// OUTCOMES SCRIPT START
+
+(function() {
+  const viewport = document.getElementById("outcomesViewport");
+  const track = document.getElementById("outcomesTrack");
+  const prevBtn = document.querySelector(".outcomes-prev");
+  const nextBtn = document.querySelector(".outcomes-next");
+  const progressBar = document.getElementById("outcomesProgressBar");
+
+  // how far to scroll per click = width of first card + gap
+  function getStep() {
+    const firstCard = track.querySelector(".outcome-card");
+    if (!firstCard) return 0;
+    const cardStyles = window.getComputedStyle(firstCard);
+    const cardWidth = firstCard.getBoundingClientRect().width;
+    // gap between cards is 1rem. let's read from parent
+    const gap = parseFloat(
+      window.getComputedStyle(track).columnGap ||
+      window.getComputedStyle(track).gap ||
+      16
+    );
+    return cardWidth + gap;
+  }
+
+  function updateButtons() {
+    // disable prev if scrolled to start
+    prevBtn.disabled = viewport.scrollLeft <= 0 + 2;
+
+    // disable next if scrolled to (max - fudge)
+    const maxScrollLeft = viewport.scrollWidth - viewport.clientWidth;
+    nextBtn.disabled = viewport.scrollLeft >= maxScrollLeft - 2;
+  }
+
+  function updateProgress() {
+    const maxScrollLeft = viewport.scrollWidth - viewport.clientWidth;
+    let ratio = 0;
+    if (maxScrollLeft > 0) {
+      ratio = viewport.scrollLeft / maxScrollLeft;
+    }
+    progressBar.style.width = (ratio * 100).toFixed(2) + "%";
+  }
+
+  function scrollByStep(dir) {
+    const step = getStep();
+    viewport.scrollBy({
+      left: dir * step,
+      behavior: "smooth",
+    });
+  }
+
+  // click arrows
+  prevBtn.addEventListener("click", () => scrollByStep(-1));
+  nextBtn.addEventListener("click", () => scrollByStep(1));
+
+  // sync state on scroll
+  viewport.addEventListener("scroll", () => {
+    updateButtons();
+    updateProgress();
+  });
+
+  // sync state on load / resize (so buttons + bar look correct initially)
+  function initState() {
+    updateButtons();
+    updateProgress();
+  }
+  window.addEventListener("resize", initState);
+  initState();
+})();
+
+// OUTCOMES SCRIPT END
