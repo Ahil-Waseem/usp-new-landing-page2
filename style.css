@@ -2232,7 +2232,7 @@ You can make each row move at different speeds to add depth:
   line-height: 1.4;
   color: #000;
   font-weight: 500;
-  padding: 1rem 1.25rem;
+  padding: 2rem 1.25rem;
   text-align: left;
   cursor: pointer;
   position: relative;
