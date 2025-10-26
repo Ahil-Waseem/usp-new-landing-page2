@@ -235,7 +235,7 @@ h3,
   display: flex;
   align-items: center;
   gap: 2rem;
-  font-size: 0.95rem;
+  font-size: 1rem;
   font-weight: 500;
 }
 
@@ -372,7 +372,7 @@ h3,
 
 .hero-headline {
   /* font-size: clamp(2rem, 1vw + 1.8rem, 3rem); ~32-48px range */
-  font-size: 48px;
+  font-size: 52px;
   font-weight: 600;
   color: var(--text-main);
   line-height: 1.15;
@@ -409,7 +409,7 @@ h3,
 
 .hero-subtext {
   max-width: 800px;
-  font-size: 1rem;
+  font-size: 1.2rem;
   line-height: 1.5;
   color: var(--text-secondary);
   margin: 0 auto 2rem;
@@ -1063,7 +1063,7 @@ h3,
 }
 
 .pillar-desc {
-  font-size: 0.95rem;
+  font-size: 1rem;
   line-height: 1.5;
   color: rgba(255,255,255,0.9);
   max-width: 32rem;
@@ -1087,7 +1087,7 @@ h3,
 .example-chip {
   border: 1px solid rgba(255,255,255,0.7);
   border-radius: 999px;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   line-height: 1.2;
   padding: 0.6rem 0.9rem;
   background-color: rgba(0,0,0,0.15);
@@ -1200,7 +1200,7 @@ h3,
 /* 2-column main layout */
 .process-grid {
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 1fr 1fr;
   gap: 2rem 3rem;
   align-items: start;
 }
@@ -1243,7 +1243,7 @@ h3,
 
 /* active state -> blue */
 .process-phase.active {
-  background-color: #2147d9;
+  background-color: #af0300;
   color: #fff;
   box-shadow: 0 24px 40px rgba(33,71,217,0.28);
 }
