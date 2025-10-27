@@ -43,7 +43,9 @@
 }
 
 :root {
-  --bg-page: #fff8f3;           /* that off-white / blush background */
+  /* --bg-page: #ffffff; */
+  --bg-page: #ecdaca;
+  /* --bg-page: #fff8f3;           */
   --text-main: #000000;
   --text-secondary: #2a2a2a;
   /* --brand-blue: #2147d9;        */
@@ -62,7 +64,7 @@
 }
 body {
 	margin:0;
-  /* background:#0d0d0d; */
+  background:#ffffff;
   scroll-behavior: smooth;
   font-family: "SF Pro Display", "Inter", Arial, sans-serif;
 
@@ -572,7 +574,8 @@ h3,
 
 /* Logo SLIDER start */
 .trusted-section {
-  background-color: #fff;
+  /* background-color: #e6e6e6; */
+  background-color: #ecdaca;
   padding: 4rem 0;
   text-align: center;
   overflow: hidden;
@@ -586,7 +589,7 @@ h3,
 }
 
 .trusted-heading span {
-  color: #2147d9;
+  color: #af0300;
 }
 
 /* Slider base */
@@ -655,7 +658,7 @@ h3,
 /* Counter CSS START */
 /* Our Impact Section */
 .impact-section {
-  background-color: transparent;
+  background-color: #ffffff;
   padding: 4rem 0;
   text-align: center;
   color: #000;
@@ -671,9 +674,10 @@ h3,
 
 .impact-card {
   position: relative;
-  background-color: #eef5ff; /* soft bluish like screenshot */
+  /* background-color: #eef5ff;  */
+  background-color: #e6e6e6;
   border-radius: 16px;
-  box-shadow: 0 24px 40px rgba(0,0,0,0.04);
+  /* box-shadow: 0 24px 40px rgba(0,0,0,0.04); */
   padding: 2rem 1rem;
   text-align: left;
   overflow: visible;
@@ -686,7 +690,7 @@ h3,
   left: -16px;
   width: 48px;
   height: 48px;
-  background: radial-gradient(circle at 50% 50%, #a5ffe8 0 40%, transparent 41%);
+  background: radial-gradient(circle at 50% 50%, #af0300 0 40%, transparent 41%);
   /* We'll fake spokes with pseudo elements */
 }
 
@@ -698,7 +702,7 @@ h3,
   top: 50%;
   width: 4px;
   height: 48px;
-  background-color: #a5ffe8;
+  background-color: #af0300;
   transform-origin: center;
   border-radius: 2px;
 }
@@ -772,7 +776,9 @@ h3,
 
 .help-section {
   padding: 4rem 0;
-  background-color: #fff;
+  /* background-color: #fff; */
+  background-color: #ecdaca;
+  /* background-color: rgba(200, 200, 200); */
   color: #000;
 }
 
@@ -854,7 +860,7 @@ h3,
   display: flex;
   align-items: flex-start;
   gap: 0.75rem;
-  border: 1px solid #2147d9;
+  border: 1px solid #af0300;
   border-radius: 999px;
   padding: 0.9rem 1rem;
   line-height: 1.4;
@@ -868,7 +874,7 @@ h3,
 .pill-icon {
   min-width: 28px;
   min-height: 28px;
-  background-color: #2147d9;
+  background-color: #af0300;
   color: #fff;
   font-size: 0.8rem;
   font-weight: 600;
@@ -958,7 +964,7 @@ h3,
 
 .whatwedo-accordion-header .icon {
   font-size: 1.5rem;
-  color: var(--brand-blue, #2147d9);
+  color: var(--brand-blue, #af0300);
   font-weight: bold;
   transition: transform 0.3s ease;
 }
@@ -986,7 +992,7 @@ h3,
 }
 
 .whatwedo-accordion-item.active h3 {
-  color: var(--brand-blue, #2147d9);
+  color: var(--brand-blue, #af0300);
 }
 
 /* Image Container */
@@ -1022,7 +1028,9 @@ h3,
 /* OUR PROCESS CSS START */
 
 .pillars-section {
-  background: radial-gradient(circle at 20% 20%, #1e4fff 0%, #0029a5 60%);
+  /* background: radial-gradient(circle at 20% 20%, #1e4fff 0%, #0029a5 60%); */
+  /* background-color: #ffffff; */
+  background-color: #ecdaca;
   color: #fff;
   padding: 3rem 0 4rem;
 }
@@ -1032,7 +1040,8 @@ h3,
   font-weight: 700;
   line-height: 1.2;
   margin: 0 0 2rem;
-  color: #fff;
+  /* color: #fff; */
+  color: #060606;
   text-align: left;
 }
 
@@ -1065,13 +1074,14 @@ h3,
   font-size: 1.4rem;
   font-weight: 600;
   margin: 0 0 0.75rem;
-  color: #fff;
+  color: #060606;
 }
 
 .pillar-desc {
   font-size: 1rem;
   line-height: 1.5;
-  color: rgba(255,255,255,0.9);
+  /* color: rgba(255,255,255,0.9); */
+  color: #060606;
   max-width: 32rem;
   margin: 0 0 1.5rem;
 }
@@ -1080,7 +1090,8 @@ h3,
 .pillar-examples .examples-label {
   font-size: 1rem;
   font-weight: 600;
-  color: #fff;
+  /* color: #fff; */
+  color: #060606;
   margin: 0 0 0.75rem;
 }
 
@@ -1091,13 +1102,16 @@ h3,
 }
 
 .example-chip {
-  border: 1px solid rgba(255,255,255,0.7);
+  /* border: 1px solid rgba(255,255,255,0.7); */
+  border: 1px solid #af0300;
   border-radius: 999px;
   font-size: 0.9rem;
   line-height: 1.2;
   padding: 0.6rem 0.9rem;
-  background-color: rgba(0,0,0,0.15);
-  color: #fff;
+  /* background-color: rgba(0,0,0,0.15); */
+  background-color: #e6e6e6;
+  /* color: #fff; */
+  color: #af0300;
   font-weight: 500;
   white-space: nowrap;
 }
@@ -1107,7 +1121,7 @@ h3,
   background-color: rgba(0,0,0,0.25);
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 30px 50px rgba(0,0,0,0.4);
+  /* box-shadow: 0 30px 50px rgba(0,0,0,0.4); */
   border: 1px solid rgba(255,255,255,0.2);
   padding: 0;
   display: flex;
@@ -1226,7 +1240,8 @@ h3,
   text-align: left;
   padding: 1rem 1.25rem;
   font-family: inherit;
-  background-color: #dfeadf; /* light green-ish */
+  /* background-color: #dfeadf;  */
+  background-color: #e6e6e6;
   cursor: pointer;
   box-shadow: 0 16px 32px rgba(0,0,0,0.06);
   transition: all 0.2s ease;
@@ -1247,11 +1262,11 @@ h3,
   line-height: 1.4;
 }
 
-/* active state -> blue */
+
 .process-phase.active {
   background-color: #af0300;
   color: #fff;
-  box-shadow: 0 24px 40px rgba(33,71,217,0.28);
+  /* box-shadow: 0 24px 40px rgba(33,71,217,0.28); */
 }
 
 .process-phase.active .phase-meta {
@@ -1346,7 +1361,8 @@ h3,
 /* <!-- SETUP CHECK LIST SECTION CSS START --> */
 /* ====== SHARED SECTION WRAPPER ====== */
 .setup-section {
-  background: #f8f9fc;
+  /* background: #f8f9fc; */
+  background: #ecdaca;
   padding: 3rem 0 4rem;
   color: #000;
   font-family: "SF Pro Display", system-ui, sans-serif;
@@ -1388,8 +1404,9 @@ h3,
 
 .checklist-card {
   flex: 0 0 100%;
-  background: radial-gradient(circle at 20% 20%, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0) 60%),
-              rgba(255,255,255,0.4);
+  /* background: radial-gradient(circle at 20% 20%, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0) 60%),
+              rgba(255,255,255,0.4); */
+              background-color: #ecdaca;
   backdrop-filter: blur(20px) saturate(140%);
   -webkit-backdrop-filter: blur(20px) saturate(140%);
   border-radius: 12px;
@@ -1853,7 +1870,7 @@ You can make each row move at different speeds to add depth:
 /* TESTIMONIAL SECTION CSS START */
 /* SECTION WRAPPER */
 .testimonials-section {
-  background: #fff8f3; /* that subtle peach tint from screenshot */
+  background: #ecdaca; /* that subtle peach tint from screenshot */
   padding: 4rem 1rem;
   font-family: "SF Pro Display", system-ui, sans-serif;
   color: #000;
@@ -1894,20 +1911,20 @@ You can make each row move at different speeds to add depth:
 
 .testi-arrow {
   appearance: none;
-  background: none;
+  background: #af0300;
   border: none;
   font-size: 1.25rem;
   line-height: 1;
   cursor: pointer;
-  color: #2a2a2a;
-  padding: 0.5rem;
-  border-radius: 6px;
+  color: #ffffff;
+  padding: 0.7rem;
+  border-radius: 5px;
   transition: background 0.2s ease;
 }
 
-.testi-arrow:hover {
+/* .testi-arrow:hover {
   background: rgba(0,0,0,0.05);
-}
+} */
 
 /* SLIDER VIEWPORT AREA */
 .testimonials-wrapper {
@@ -1926,7 +1943,8 @@ You can make each row move at different speeds to add depth:
 /* INDIVIDUAL CARD */
 .testimonial-card {
   flex: 0 0 calc((100% - 3rem) / 3); /* 3 cards visible with gaps */
-  background: #fff;
+  background: #ffffff;
+  /* background: #e6e6e6; */
   border-radius: 12px;
   box-shadow: 0 32px 64px rgba(0,0,0,0.07);
   border: 1px solid rgba(0,0,0,0.07);
@@ -1992,7 +2010,7 @@ You can make each row move at different speeds to add depth:
 
 .user-name {
   font-weight: 600;
-  color: #3a2a83; /* purple-ish for name */
+  color: #af0300; /* purple-ish for name */
 }
 
 .user-role {
@@ -2000,6 +2018,13 @@ You can make each row move at different speeds to add depth:
   font-size: 0.9rem;
   line-height: 1.3;
 }
+/* font aswome icon */
+.fa-user{
+  color: #af0300;
+    font-size: 28px;
+    padding: 4px 0px 0px 4px;
+}
+/* font awsome icon */
 
 /* RESPONSIVE */
 @media (max-width: 1024px) {
@@ -2033,7 +2058,6 @@ You can make each row move at different speeds to add depth:
 /* <!-- Hear It From A Team That’s Done This Before START --> */
 
 /* ====== ABOUT TEAM SECTION ====== */
-
 .about-team-section {
   background: #ffffff;
   padding: 4rem 0;
@@ -2050,14 +2074,14 @@ You can make each row move at different speeds to add depth:
   position: relative;
 }
 
-/* LEFT COLUMN */
+
 .about-team-copy {
   position: relative;
   max-width: 600px;
 }
 
 .about-team-heading {
-  font-size: clamp(1.75rem, 0.6vw + 1.5rem, 2rem); /* ~28-32px */
+  font-size: clamp(1.75rem, 0.6vw + 1.5rem, 2rem); 
   font-weight: 600;
   line-height: 1.25;
   color: #000;
@@ -2073,20 +2097,20 @@ You can make each row move at different speeds to add depth:
   font-weight: 400;
 }
 
-/* reuse your .cta-button base but allow local tweaks */
+
 .about-team-cta {
   display: inline-flex;
   margin-bottom: 3rem;
 }
 
-/* watermarked background graphic in bottom-right of text block */
+
 .about-watermark {
   position: absolute;
   bottom: 0;
   right: 0;
   width: 220px;
   max-width: 40%;
-  opacity: 1; /* screenshot shows visible watermark */
+  opacity: 1;
   pointer-events: none;
   user-select: none;
 }
@@ -2096,13 +2120,32 @@ You can make each row move at different speeds to add depth:
   display: block;
 }
 
-/* RIGHT COLUMN: IMAGE GRID */
+
 .about-team-gallery {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr 1fr;         
+  grid-template-rows: auto auto;          
+  grid-template-areas:
+    "hero banner"
+    "meeting floor";
   gap: 1.25rem;
   align-content: start;
 }
+
+
+.about-img--hero {
+  grid-area: hero;
+}
+.about-img--banner {
+  grid-area: banner;
+}
+.about-img--meeting {
+  grid-area: meeting;
+}
+.about-img--floor {
+  grid-area: floor;
+}
+
 
 .about-img {
   border-radius: 12px;
@@ -2118,63 +2161,18 @@ You can make each row move at different speeds to add depth:
   object-fit: cover;
 }
 
-/* ====== RESPONSIVE ====== */
-@media (max-width: 1024px) {
+
+@media (max-width: 768px) {
   .about-team-inner {
     grid-template-columns: 1fr;
   }
 
   .about-team-gallery {
-    order: 2;
-    grid-template-columns: repeat(2, 1fr);
-    max-width: 700px;
-  }
-
-  .about-team-copy {
-    order: 1;
-  }
-
-  .about-watermark {
-    position: absolute;
-    right: 0;
-    bottom: -1rem;
-    opacity: 0.08; /* tone it down on mobile/tablet so it doesn't overlap text too hard */
-  }
-}
-
-@media (max-width: 640px) {
-  .about-team-section {
-    padding: 3rem 0;
-  }
-
-  .about-team-heading {
-    font-size: 1.5rem; /* ~24px */
-    line-height: 1.3;
-    margin-bottom: 1rem;
-  }
-
-  .about-team-desc {
-    font-size: 0.95rem;
-    line-height: 1.5;
-    margin-bottom: 1.5rem;
-  }
-
-  .about-team-cta {
-    width: 100%;
-    max-width: 220px;
-    justify-content: center;
-  }
-
-  .about-team-gallery {
     grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-  }
-
-  .about-watermark {
-    width: 160px;
-    max-width: 50%;
-    bottom: -0.5rem;
-    opacity: 0.08;
+    grid-template-areas:
+      "hero hero"
+      "banner meeting"
+      "floor floor";
   }
 }
 
