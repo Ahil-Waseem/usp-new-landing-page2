@@ -583,7 +583,7 @@ h3,
 .trusted-section {
   /* background-color: #e6e6e6; */
   background-color: #ffffff;
-  padding: 4rem 0;
+  padding-top: 4rem;
   text-align: center;
   overflow: hidden;
 }
@@ -613,11 +613,14 @@ h3,
   display: flex;
   align-items: center;
   gap: 3rem;
-  animation: scrollLeft 25s linear infinite;
+  animation: scrollLeft 15s linear infinite;
 }
 
 .logo-slider.slider-bottom .slide-track {
-  animation: scrollRight 25s linear infinite;
+  animation: scrollRight 15s linear infinite;
+}
+.logo-slider:hover .slide-track {
+  animation-play-state: paused;
 }
 
 /* Logos */
@@ -2069,7 +2072,7 @@ You can make each row move at different speeds to add depth:
   .about-team-section {
     padding-top: 0 !important;
   }
-     
+
   .testimonials-arrows {
     order: -0;
   }
@@ -2214,7 +2217,7 @@ You can make each row move at different speeds to add depth:
 
 .faq-heading {
   text-align: center;
-  font-size: clamp(1.5rem, 0.6vw + 1.3rem, 2rem);
+  font-size: 2rem;
   font-weight: 600;
   color: #ffffff;
   line-height: 1.2;
@@ -2555,7 +2558,7 @@ You can make each row move at different speeds to add depth:
   display: grid;
   grid-template-columns: 1fr 1fr;
 
-  padding: 100px 50px;
+  padding: 50px 50px;
 }
 
 .left-section {
@@ -2567,11 +2570,11 @@ You can make each row move at different speeds to add depth:
             font-weight: 700;
             line-height: 1.1;
             margin-bottom: 40px; */
-  font-size: 60px;
+  font-size: 32px;
   font-weight: 800;
   line-height: 68px;
   text-transform: capitalize;
-  margin-bottom: 52px;
+  margin-bottom: 30px;
 }
 
 .contact-info {
@@ -2728,12 +2731,11 @@ select option:first-child {
   width: 18px;
   height: 18px;
 }
-.form-btn{
-      display: flex;
-    align-content: center;
-    align-items: center;
-    justify-content: center;
-
+.form-btn {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
 }
 
 /* CTA form CSS End */
@@ -3004,7 +3006,7 @@ button.subscribe {
 .lead-modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(6px);
   display: none;
   align-items: center;
@@ -3024,16 +3026,16 @@ button.subscribe {
   color: #060606;
   font-family: "SF Pro Display", system-ui, sans-serif;
   width: 100%;
-  max-width: 420px;          /* slightly narrower -> feels tighter */
+  max-width: 420px; /* slightly narrower -> feels tighter */
   border-radius: 16px;
-  box-shadow: 0 32px 64px rgba(0,0,0,0.5);
+  box-shadow: 0 32px 64px rgba(0, 0, 0, 0.5);
   position: relative;
   /* height control */
-  max-height: 90vh;          /* never taller than viewport */
+  max-height: 90vh; /* never taller than viewport */
   display: flex;
   flex-direction: column;
-  overflow: hidden;          /* hide overflow from inner scroll */
-  padding-top: 2.5rem;       /* top padding so close button isn't cramped */
+  overflow: hidden; /* hide overflow from inner scroll */
+  padding-top: 2.5rem; /* top padding so close button isn't cramped */
 }
 
 /* Inner scrollable area (form + text) */
@@ -3076,7 +3078,7 @@ button.subscribe {
 .lead-form {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;               /* tighter gap to reduce height */
+  gap: 0.75rem; /* tighter gap to reduce height */
 }
 
 /* rows that hold two fields */
@@ -3105,7 +3107,7 @@ button.subscribe {
 .lead-field select {
   width: 100%;
   border-radius: 8px;
-  border: 1px solid rgba(0,0,0,0.15);
+  border: 1px solid rgba(0, 0, 0, 0.15);
   background: #fff;
   font-size: 0.9rem;
   line-height: 1.4;
@@ -3118,7 +3120,7 @@ button.subscribe {
 .lead-field input:focus,
 .lead-field select:focus {
   border-color: #af0300;
-  box-shadow: 0 0 0 2px rgba(175,3,0,0.15);
+  box-shadow: 0 0 0 2px rgba(175, 3, 0, 0.15);
 }
 
 /* Consent text */
@@ -3173,7 +3175,7 @@ body.modal-open {
   .lead-modal {
     max-width: 90vw;
     border-radius: 12px;
-    max-height: 80vh;       /* even shorter on tiny screens */
+    max-height: 80vh; /* even shorter on tiny screens */
     padding-top: 2rem;
   }
 
@@ -3564,11 +3566,11 @@ body.modal-open {
   .about-team-desc {
     line-height: 1 !important;
   }
-  .about-team-heading{
-font-size: 26px;
+  .about-team-heading {
+    font-size: 26px;
   }
-  .about-team-desc{
-font-size: 14px;
+  .about-team-desc {
+    font-size: 14px;
   }
 
   /* SETUP CHECK_LIST RESPONSIVE CSS END */
@@ -3659,15 +3661,15 @@ font-size: 14px;
   .faq-section {
     padding-top: 0%;
   }
-.testimonials-section {
-  padding-top: 0%;
-}
-.process-section {
-  padding-top: 0%;
-}
-.pillars-section {
-  padding-top: 0%;
-}
+  .testimonials-section {
+    padding-top: 0%;
+  }
+  .process-section {
+    padding-top: 0%;
+  }
+  .pillars-section {
+    padding-top: 0%;
+  }
   .trusted-heading {
     font-size: 1.25rem;
     margin-bottom: 4rem;
@@ -3696,79 +3698,6 @@ font-size: 14px;
     gap: 20px;
   }
 
-.left-section h1 {
-    font-size: 40px;
-    font-weight: 800;
-    line-height: 68px;
-    text-transform: capitalize;
-    margin-bottom: 20px;
-    margin-top: 0;
-}
-    .cta-container {
-        background-color: #060606;
-        width: 100%;
-        display: grid;
-        grid-template-columns: 1fr;
-        padding: 0px 10px 50px 10px;
-    }
-    .agreement{
-font-size: 12px;
-    }
-    .group label {
-    /* font-family: Manrope; */
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 22px;
-    text-align: left;
-    color: #222;
-}
-.hero-subtext br{
-display: none;
-}
-.cta-button{
-  font-size: 14px;
-      padding: 0.7rem 1rem;
-      width: 125px;
-}
-.our-work-heading {
-  font-size: 2rem;
-  font-weight: 600;
-  margin-bottom: 1.5rem;
-  margin-top: 0;
-}
-.work-slider {
-    display: flex
-;
-    flex-direction: column;
-    gap: 1.5rem;
-    overflow: hidden;
-    position: relative;
-}
-.whatwedo-section {
-    background-color: #060606;
-    padding-top: 0;
-    color: #ffffff;
-    text-align: center;
-}
-.whatwedo-header .section-heading {
-    /* font-size: clamp(2rem, 2vw + 1rem, 2.4rem); */
-    font-size: 2rem;
-    font-weight: 700;
-    margin-top: 0;
-    margin-bottom: 1rem;
-}
-.our-work-section {
-  padding-top: 0;
-}
-.testi-arrow {
-  font-size: .7rem;
-}
- .about-team-desc {
-        line-height: 1.3 !important;
-    }
-
-}
-@media (max-width: 375px){
   .left-section h1 {
     font-size: 32px;
     font-weight: 800;
@@ -3776,6 +3705,76 @@ display: none;
     text-transform: capitalize;
     margin-bottom: 20px;
     margin-top: 0;
-
+  }
+  .cta-container {
+    background-color: #060606;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: 0px 10px 50px 10px;
+  }
+  .agreement {
+    font-size: 12px;
+  }
+  .group label {
+    /* font-family: Manrope; */
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 22px;
+    text-align: left;
+    color: #222;
+  }
+  .hero-subtext br {
+    display: none;
+  }
+  .cta-button {
+    font-size: 14px;
+    padding: 0.7rem 1rem;
+    width: 125px;
+  }
+  .our-work-heading {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    margin-top: 0;
+  }
+  .work-slider {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    overflow: hidden;
+    position: relative;
+  }
+  .whatwedo-section {
+    background-color: #060606;
+    padding-top: 0;
+    color: #ffffff;
+    text-align: center;
+  }
+  .whatwedo-header .section-heading {
+    /* font-size: clamp(2rem, 2vw + 1rem, 2.4rem); */
+    font-size: 2rem;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+  .our-work-section {
+    padding-top: 0;
+  }
+  .testi-arrow {
+    font-size: 0.7rem;
+  }
+  .about-team-desc {
+    line-height: 1.3 !important;
+  }
 }
+@media (max-width: 375px) {
+  .left-section h1 {
+    font-size: 32px;
+    font-weight: 800;
+    line-height: 68px;
+    text-transform: capitalize;
+    margin-bottom: 20px;
+    margin-top: 0;
+  }
 }
