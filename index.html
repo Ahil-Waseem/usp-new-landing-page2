@@ -18,13 +18,13 @@
 
   <body>
     <!-- ================= NAVBAR ================= -->
-    <header class="site-header" id="header">
+    <header class="site-header frosted-glass" id="header">
       <div class="nav-inner containers">
         <!-- Left side: Logo + brand -->
         <a href="#" class="brand">
           <!-- Replace this img with your SVG logo -->
           <div class="brand-logo">
-            <img src="/assets/images/logo_USP NEW LOGO BLACK.png" alt="" />
+            <img src="/assets/images/logo_USP NEW LOGO WHITE.png" alt="" />
           </div>
           <!-- <span class="brand-text">BREGO BUSINESS</span> -->
         </a>
@@ -33,7 +33,7 @@
         <nav class="main-nav" aria-label="Primary">
           <a href="#impact" class="nav-link">Our Impact</a>
           <a href="#work" class="nav-link">Our Work</a>
-          <a href="#why" class="nav-link">Why Unstoppable</a>
+          <a href="#why-us" class="nav-link">Why Us</a>
         </nav>
 
         <!-- Desktop CTA -->
@@ -74,7 +74,7 @@
         <nav class="mobile-nav-links containers">
           <a href="#impact" class="mobile-link">Our Impact</a>
           <a href="#work" class="mobile-link">Our Work</a>
-          <a href="#why" class="mobile-link">Why Unstoppable</a>
+          <a href="#why-us" class="mobile-link">Why Us</a>
         </nav>
       </div>
     </header>
@@ -203,7 +203,7 @@
 
         <div class="impact-card">
           <!-- Decorative star -->
-          <div class="impact-star" aria-hidden="true"></div>
+          <div class="impact" aria-hidden="true"><img src="assets/images/favicon.jpeg" alt=""></div>
 
           <div class="impact-grid">
             <!-- Stat 1 -->
@@ -261,7 +261,7 @@
     <!-- Counting NUMBER END -->
 
     <!-- WE HELP BUSINESS SECTION START -->
-    <section class="help-section">
+    <section class="help-section" id="why-us">
       <div class="containers help-grid">
         <!-- LEFT COLUMN -->
         <div class="help-left">
@@ -329,7 +329,7 @@
         <div class="outcomes-wrapper">
           <!-- LEFT ARROW -->
           <button class="outcomes-nav outcomes-prev" aria-label="Previous">
-            <span class="outcomes-nav-icon">←</span>
+            <span class="outcomes-nav-icon"><i class="fa-solid fa-arrow-left"></i></span>
           </button>
 
           <!-- VIEWPORT -->
@@ -471,7 +471,7 @@
 
           <!-- RIGHT ARROW -->
           <button class="outcomes-nav outcomes-next" aria-label="Next">
-            <span class="outcomes-nav-icon">→</span>
+            <span class="outcomes-nav-icon"><i class="fa-solid fa-arrow-right"></i></span>
           </button>
         </div>
 
@@ -861,15 +861,15 @@
     <!-- OUR ROCESS SECTION END -->
 
     <!-- SETUP CHECK LIST SECTION START -->
-    <section class="setup-section" id="setup-checklist">
+    <!-- <section class="setup-section" id="setup-checklist">
       <div class="containers">
         <h2 class="setup-heading">Set-Up Checklist</h2>
 
-        <!-- =============== DESKTOP VIEW =============== -->
+        
         <div class="setup-shell desktop-only">
           <div class="checklist-viewport">
             <div class="checklist-track" id="checklistTrack">
-              <!-- SLIDE 1 -->
+             
               <article class="checklist-card active" data-index="0">
                 <h3 class="card-headline">Setup Checklist</h3>
 
@@ -919,7 +919,7 @@
                 </div>
               </article>
 
-              <!-- SLIDE 2 -->
+           
               <article class="checklist-card ghost" data-index="1">
                 <h3 class="card-headline">Initial Requirements</h3>
 
@@ -971,7 +971,7 @@
             </div>
           </div>
 
-          <!-- DESKTOP NAV BUTTONS -->
+        
           <button
             class="nav-arrow left-arrow"
             id="prevBtn"
@@ -983,15 +983,13 @@
             <span class="arrow-icon">→</span>
           </button>
         </div>
-        <!-- /setup-shell desktop-only -->
-
-        <!-- =============== MOBILE VIEW =============== -->
+      
         <div class="mobile-checklist mobile-only">
-          <!-- Card 1 -->
+        
           <div class="mobile-check-card">
             <div class="mobile-card-left">
               <div class="mobile-icon-box">
-                <!-- swap this for your SVG -->
+              
                 <div class="fake-icon">📄➕</div>
               </div>
 
@@ -1013,11 +1011,11 @@
             </button>
           </div>
 
-          <!-- Card 2 -->
+        
           <div class="mobile-check-card">
             <div class="mobile-card-left">
               <div class="mobile-icon-box">
-                <!-- swap this for your SVG -->
+               
                 <div class="fake-icon">📘📊</div>
               </div>
 
@@ -1039,11 +1037,11 @@
             </button>
           </div>
         </div>
-        <!-- /mobile-checklist -->
+      
       </div>
-      <!-- /.containers -->
+      
 
-      <!-- =============== MOBILE OVERLAY PANEL =============== -->
+    
       <div
         class="mobile-detail-overlay"
         id="mobileDetailOverlay"
@@ -1063,18 +1061,18 @@
             ✕
           </button>
 
-          <!-- dynamic content goes here -->
+       
           <div class="mobile-detail-content" id="mobileDetailContent">
-            <!-- JS will inject detailed checklist sections -->
+            
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
 
     <!-- SETUP CHECK LIST SECTION END -->
 
     <!-- OUR WORK SLIDER SECTION START -->
-    <section class="our-work-section">
+    <section class="our-work-section" id="work">
       <h2 class="our-work-heading">Our Work</h2>
 
       <!-- <div class="work-categories">
@@ -1253,7 +1251,7 @@
           </article>
 
           <!-- CARD 4 -->
-          <article class="testimonial-card">
+          <!-- <article class="testimonial-card">
             <div class="testimonial-text scrollable">
               We saw consistent improvement in engagement, follower quality, and
               inbound conversations. The team is proactive, structured, and very
@@ -1265,14 +1263,13 @@
               <div class="testimonial-avatar">
                 <i class="fa-solid fa-user"></i>
 
-                <!-- <img src="https://via.placeholder.com/48x48" alt="Riya S." /> -->
               </div>
               <div class="testimonial-user-meta">
                 <div class="user-name">Riya S.</div>
                 <div class="user-role">Growth Lead</div>
               </div>
             </div>
-          </article>
+          </article> -->
 
           <!-- CARD 5 -->
           <article class="testimonial-card">
@@ -1546,7 +1543,7 @@
     <!-- FAQ END -->
 
     <!-- CTA FORM STAT -->
-    <div class="container" id="contact-form">
+    <div class="cta-container" id="contact-form">
       <div class="left-section">
         <h1>Let's Work Together</h1>
         <div class="contact-info">

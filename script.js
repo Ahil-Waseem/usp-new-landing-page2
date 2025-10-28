@@ -103,8 +103,7 @@ if (impactSection) {
   observer.observe(impactSection);
 }
 
-
-// WHAT WE DO SECTION 
+// WHAT WE DO SECTION
 const items = document.querySelectorAll(".whatwedo-accordion-item");
 const displayImage = document.querySelector(".whatwedo-accordion-image");
 
@@ -220,21 +219,20 @@ document.querySelectorAll(".pillar-slider").forEach((slider) => {
 });
 // WHAT WE DO SECTION SCRIPT END
 
-
-  // <!-- OUR ROCESS SECTION SCRIPT START -->
+// <!-- OUR ROCESS SECTION SCRIPT START -->
 const phaseButtons = document.querySelectorAll(".process-phase");
 
 const step1Title = document.getElementById("step1-title");
-const step1Desc  = document.getElementById("step1-desc");
+const step1Desc = document.getElementById("step1-desc");
 const step2Title = document.getElementById("step2-title");
-const step2Desc  = document.getElementById("step2-desc");
+const step2Desc = document.getElementById("step2-desc");
 const step3Title = document.getElementById("step3-title");
-const step3Desc  = document.getElementById("step3-desc");
+const step3Desc = document.getElementById("step3-desc");
 
 phaseButtons.forEach((btn) => {
   btn.addEventListener("click", () => {
     // 1. Visually set active state on left cards
-    phaseButtons.forEach(b => b.classList.remove("active"));
+    phaseButtons.forEach((b) => b.classList.remove("active"));
     btn.classList.add("active");
 
     // 2. Pull data-* from clicked button
@@ -247,20 +245,22 @@ phaseButtons.forEach((btn) => {
 
     // 3. Update right column
     step1Title.textContent = s1t;
-    step1Desc.textContent  = s1d;
+    step1Desc.textContent = s1d;
     step2Title.textContent = s2t;
-    step2Desc.textContent  = s2d;
+    step2Desc.textContent = s2d;
     step3Title.textContent = s3t;
-    step3Desc.textContent  = s3d;
+    step3Desc.textContent = s3d;
   });
 });
-  // <!-- OUR ROCESS SECTION SCRIPT END -->
+// <!-- OUR ROCESS SECTION SCRIPT END -->
 
 // SETUP CHECK-LIST SECTION script start
 
 // ===================== DESKTOP SLIDER LOGIC ===================== //
 const track = document.getElementById("checklistTrack");
-const cards = track ? Array.from(track.querySelectorAll(".checklist-card")) : [];
+const cards = track
+  ? Array.from(track.querySelectorAll(".checklist-card"))
+  : [];
 const prevBtn = document.getElementById("prevBtn");
 const nextBtn = document.getElementById("nextBtn");
 
@@ -305,7 +305,6 @@ if (prevBtn && nextBtn) {
   updateSlider();
 }
 
-
 // ===================== MOBILE OVERLAY LOGIC ===================== //
 const overlay = document.getElementById("mobileDetailOverlay");
 const panel = document.getElementById("mobileDetailPanel");
@@ -321,27 +320,25 @@ const mobileDetailsData = {
       {
         heading: "Brand Understanding",
         body: [
-          "Review brand guidelines, references, and preferred content formats to align with brand identity."
-        ]
+          "Review brand guidelines, references, and preferred content formats to align with brand identity.",
+        ],
       },
       {
         heading: "Login Management",
         body: [
-          "Organize and secure all login credentials for streamlined access."
-        ]
+          "Organize and secure all login credentials for streamlined access.",
+        ],
       },
       {
         heading: "Profile Optimization",
-        body: [
-          "Optimize key elements of social media profiles:"
-        ],
+        body: ["Optimize key elements of social media profiles:"],
         bullets: [
           "<strong>Bio:</strong> Ensure consistency & relevance to the brand.",
           "<strong>Captions:</strong> Establish tone and style for brand voice.",
-          "<strong>Highlights:</strong> Curate highlights that showcase key brand content."
-        ]
-      }
-    ]
+          "<strong>Highlights:</strong> Curate highlights that showcase key brand content.",
+        ],
+      },
+    ],
   },
 
   final: {
@@ -352,25 +349,25 @@ const mobileDetailsData = {
         heading: "Access & Assets",
         body: [
           "Share all social handles, ad accounts, and brand folders.",
-          "Provide past campaign creatives and performance reports."
-        ]
+          "Provide past campaign creatives and performance reports.",
+        ],
       },
       {
         heading: "Content Inputs",
         body: [
           "Core USPs, product shots, testimonial material.",
-          "Founder / team presence for face-of-brand content."
-        ]
+          "Founder / team presence for face-of-brand content.",
+        ],
       },
       {
         heading: "Expectations & Goals",
         body: [
           "Growth targets (reach, followers, leads, etc.).",
-          "Priority platforms + timelines for launch."
-        ]
-      }
-    ]
-  }
+          "Priority platforms + timelines for launch.",
+        ],
+      },
+    ],
+  },
 };
 
 // build the HTML for the overlay content
@@ -380,7 +377,7 @@ function buildMobileDetailHTML(data) {
     <h3 class="detail-title">${data.title}</h3>
   `;
 
-  data.sections.forEach(section => {
+  data.sections.forEach((section) => {
     html += `
       <div class="mobile-detail-block">
         <h4>
@@ -390,14 +387,14 @@ function buildMobileDetailHTML(data) {
     `;
 
     if (section.body && section.body.length) {
-      section.body.forEach(p => {
+      section.body.forEach((p) => {
         html += `<p>${p}</p>`;
       });
     }
 
     if (section.bullets && section.bullets.length) {
       html += `<ul>`;
-      section.bullets.forEach(b => {
+      section.bullets.forEach((b) => {
         html += `
           <li>
             <span class="green-check">✔</span>
@@ -432,8 +429,8 @@ function closeMobileDetail() {
 }
 
 // click handlers for each mobile card arrow
-document.querySelectorAll(".mobile-card-arrow").forEach(btn => {
-  btn.addEventListener("click", e => {
+document.querySelectorAll(".mobile-card-arrow").forEach((btn) => {
+  btn.addEventListener("click", (e) => {
     const which = btn.getAttribute("data-detail"); // "initial" or "final"
     openMobileDetail(which);
   });
@@ -444,7 +441,7 @@ if (closeBtn) {
   closeBtn.addEventListener("click", closeMobileDetail);
 }
 if (overlay) {
-  overlay.addEventListener("click", e => {
+  overlay.addEventListener("click", (e) => {
     // close if clicking the dimmed area, not the panel
     if (e.target === overlay) {
       closeMobileDetail();
@@ -454,104 +451,69 @@ if (overlay) {
 
 // SETUP CHECK-LIST SECTION script END
 
-
 // TESTIMONIAL SECTION SCRIPT START
 
-  (function () {
-    const track = document.getElementById("testimonialsTrack");
-    const prevBtn = document.getElementById("testiPrev");
-    const nextBtn = document.getElementById("testiNext");
+(function () {
+  const testiTrack = document.getElementById("testimonialsTrack");
+  if (!testiTrack) return;
 
-    // how far are we slid (in pixels)
-    let offset = 0;
+  const testiPrevBtn = document.getElementById("testiPrev");
+  const testiNextBtn = document.getElementById("testiNext");
+  const testiCards = testiTrack.querySelectorAll(".testimonial-card");
 
-    function getCardWidth() {
-      // read first card width incl. gap
-      const firstCard = track.querySelector(".testimonial-card");
-      const cardStyles = window.getComputedStyle(firstCard);
-      const cardWidth = firstCard.getBoundingClientRect().width;
-      const gap = parseFloat(cardStyles.marginRight) || 24; // fallback gap
-      return cardWidth + 24; // 24px ~ our gap (1.5rem)
+  let testiIndex = 0;
+
+  function getVisibleCount() {
+    // tweak breakpoint however you want
+    return window.innerWidth <= 768 ? 1 : 3;
+  }
+
+  function getMaxIndex() {
+    return testiCards.length - getVisibleCount();
+  }
+
+  function updateTestimonialSlider() {
+    const gapPx = parseFloat(getComputedStyle(testiTrack).gap) || 0;
+    const cardWidth = testiCards[0].getBoundingClientRect().width;
+    const offset = (cardWidth + gapPx) * testiIndex * -1;
+    testiTrack.style.transform = `translateX(${offset}px)`;
+
+    if (testiPrevBtn) {
+      testiPrevBtn.disabled = testiIndex === 0;
     }
+    if (testiNextBtn) {
+      testiNextBtn.disabled = testiIndex === getMaxIndex();
+    }
+  }
 
-    function slideNext() {
-      const step = getCardWidth();
-      const maxOffset =
-        track.scrollWidth - track.parentElement.offsetWidth;
-
-      offset += step;
-      if (offset > maxOffset) {
-        offset = maxOffset; // clamp at end
+  if (testiNextBtn) {
+    testiNextBtn.addEventListener("click", () => {
+      if (testiIndex < getMaxIndex()) {
+        testiIndex++;
+        updateTestimonialSlider();
       }
-      track.style.transform = `translateX(-${offset}px)`;
-    }
+    });
+  }
 
-    function slidePrev() {
-      const step = getCardWidth();
-      offset -= step;
-      if (offset < 0) {
-        offset = 0; // clamp at start
+  if (testiPrevBtn) {
+    testiPrevBtn.addEventListener("click", () => {
+      if (testiIndex > 0) {
+        testiIndex--;
+        updateTestimonialSlider();
       }
-      track.style.transform = `translateX(-${offset}px)`;
+    });
+  }
+
+  window.addEventListener("resize", () => {
+    // clamp index if viewport change reduced max slides
+    if (testiIndex > getMaxIndex()) {
+      testiIndex = getMaxIndex();
     }
+    updateTestimonialSlider();
+  });
 
-    nextBtn.addEventListener("click", slideNext);
-    prevBtn.addEventListener("click", slidePrev);
-
-    // optional: drag-to-scroll on desktop/mobile (nice UX)
-    let isDown = false;
-    let startX;
-    let startOffset;
-
-    track.addEventListener("mousedown", (e) => {
-      isDown = true;
-      startX = e.clientX;
-      startOffset = offset;
-      track.style.cursor = "grabbing";
-      e.preventDefault();
-    });
-
-    window.addEventListener("mouseup", () => {
-      isDown = false;
-      track.style.cursor = "default";
-    });
-
-    window.addEventListener("mousemove", (e) => {
-      if (!isDown) return;
-      const dx = e.clientX - startX;
-      offset = startOffset - dx;
-      const maxOffset =
-        track.scrollWidth - track.parentElement.offsetWidth;
-      if (offset < 0) offset = 0;
-      if (offset > maxOffset) offset = maxOffset;
-      track.style.transform = `translateX(-${offset}px)`;
-    });
-
-    // touch support
-    track.addEventListener("touchstart", (e) => {
-      isDown = true;
-      startX = e.touches[0].clientX;
-      startOffset = offset;
-    });
-
-    track.addEventListener("touchend", () => {
-      isDown = false;
-    });
-
-    track.addEventListener("touchmove", (e) => {
-      if (!isDown) return;
-      const dx = e.touches[0].clientX - startX;
-      offset = startOffset - dx;
-      const maxOffset =
-        track.scrollWidth - track.parentElement.offsetWidth;
-      if (offset < 0) offset = 0;
-      if (offset > maxOffset) offset = maxOffset;
-      track.style.transform = `translateX(-${offset}px)`;
-    });
-  })();
-
-
-
+  updateTestimonialSlider();
+})();
 // TESTIMONIAL SECTION SCRIPT END
 
 // FAQ SCRIPT START
@@ -600,7 +562,7 @@ if (overlay) {
 
 // OUTCOMES SCRIPT START
 
-(function() {
+(function () {
   const viewport = document.getElementById("outcomesViewport");
   const track = document.getElementById("outcomesTrack");
   const prevBtn = document.querySelector(".outcomes-prev");
@@ -616,8 +578,8 @@ if (overlay) {
     // gap between cards is 1rem. let's read from parent
     const gap = parseFloat(
       window.getComputedStyle(track).columnGap ||
-      window.getComputedStyle(track).gap ||
-      16
+        window.getComputedStyle(track).gap ||
+        16
     );
     return cardWidth + gap;
   }

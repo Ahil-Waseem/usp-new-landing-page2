@@ -49,7 +49,7 @@
   --text-main: #000000;
   --text-secondary: #2a2a2a;
   /* --brand-blue: #2147d9;        */
-  --brand-blue: #af0300;        
+  --brand-blue: #af0300;
 
   --radius-lg: 12px;
   --radius-xl: 16px;
@@ -62,22 +62,26 @@
   --font-stack: "Inter", system-ui, -apple-system, BlinkMacSystemFont,
     "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
 }
+.frosted-glass {
+  background: rgba(255, 255, 255, 0.1);
+  /* border: 1px solid rgba(255, 255, 255, 0.2); */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
 body {
-	margin:0;
-  background:#ffffff;
+  margin: 0;
+  background: #ffffff;
   scroll-behavior: smooth;
   font-family: "SF Pro Display", "Inter", Arial, sans-serif;
-
 }
 
 h1,
 h2,
 h3,
 #navbar {
- 
   font-family: "SF Pro Display", "Inter", Arial, sans-serif;
 }
-
 
 .ball {
   --delay: 0s;
@@ -102,13 +106,12 @@ h3,
 
   opacity: 0.4;
 }
-.containers{
+.containers {
   width: 100%;
   max-width: 1280px;
   margin: 0 auto;
   padding-left: 1.25rem;
   padding-right: 1.25rem;
-
 }
 
 @keyframes loop {
@@ -194,9 +197,9 @@ h3,
   top: 0;
   left: 0;
   right: 0;
-  background-color: var(--bg-page);
-  z-index: 999;
-  box-shadow: 0 1px 0 rgba(0,0,0,0.05);
+  background-color: #060606;
+  z-index: 111;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
 }
 
 .nav-inner {
@@ -219,7 +222,7 @@ h3,
   text-decoration: none;
 }
 
-.brand-logo img{
+.brand-logo img {
   width: 150px;
   height: auto;
   /* background-color: var(--brand-blue); */
@@ -242,7 +245,8 @@ h3,
 }
 
 .nav-link {
-  color: var(--text-main);
+  /* color: var(--text-main); */
+  color: #ffffff;
   text-decoration: none;
 }
 
@@ -259,11 +263,12 @@ h3,
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-cta);
+  /* border-radius: var(--radius-lg); */
+  border-radius: 25px;
+  /* box-shadow: var(--shadow-cta); */
   text-decoration: none;
   line-height: 1.2;
-  padding: 0.9rem 1.25rem;
+  padding: 0.7rem 1.25rem;
   white-space: nowrap;
 }
 
@@ -298,8 +303,8 @@ h3,
   inset: 0 auto auto 0;
   width: 100%;
   background-color: var(--bg-page);
-  border-bottom: 1px solid rgba(0,0,0,0.05);
-  box-shadow: 0 24px 40px rgba(0,0,0,0.08);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 24px 40px rgba(0, 0, 0, 0.08);
   transform-origin: top;
   transform: scaleY(0);
   opacity: 0;
@@ -348,7 +353,7 @@ h3,
 }
 
 .mobile-link + .mobile-link {
-  border-top: 1px solid rgba(0,0,0,0.06);
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 /* Hide desktop CTA in mobile menu header? we keep desktop CTA out of sight on mobile below */
@@ -363,6 +368,7 @@ h3,
 .hero-section {
   padding-top: clamp(2rem, 4vw, 4rem);
   padding-bottom: clamp(2rem, 4vw, 4rem);
+  background-color: #060606;
 }
 
 .hero-inner {
@@ -376,7 +382,8 @@ h3,
   /* font-size: clamp(2rem, 1vw + 1.8rem, 3rem); ~32-48px range */
   font-size: 52px;
   font-weight: 600;
-  color: var(--text-main);
+  /* color: var(--text-main); */
+  color: #ffffff;
   line-height: 1.15;
   max-width: 900px;
   margin: 0 auto 1rem;
@@ -413,7 +420,8 @@ h3,
   max-width: 800px;
   font-size: 1.2rem;
   line-height: 1.5;
-  color: var(--text-secondary);
+  /* color: var(--text-secondary); */
+  color: #ffffff;
   margin: 0 auto 2rem;
   font-weight: 400;
 }
@@ -422,7 +430,6 @@ h3,
   font-size: 1rem;
   /* margin-bottom: 2rem; */
   margin-bottom: 7rem;
-
 }
 
 /* Zigzag + dots indicator */
@@ -439,7 +446,7 @@ h3,
   background-image: repeating-linear-gradient(
     -45deg,
     transparent 0 6px,
-    rgba(33,71,217,0.15) 6px 12px
+    rgba(33, 71, 217, 0.15) 6px 12px
   );
   border-radius: 2px;
 }
@@ -498,7 +505,7 @@ h3,
   width: 100%;
   max-width: 1200px;
   overflow: hidden;
-  border: 1px solid rgba(0,0,0,0.05);
+  border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 /* Responsive iframe (16:9) */
@@ -565,9 +572,9 @@ h3,
 }
 
 .alt-bg {
-  background: rgba(0,0,0,0.02);
-  border-top: 1px solid rgba(0,0,0,0.05);
-  border-bottom: 1px solid rgba(0,0,0,0.05);
+  background: rgba(0, 0, 0, 0.02);
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 /* Header END */
@@ -575,7 +582,7 @@ h3,
 /* Logo SLIDER start */
 .trusted-section {
   /* background-color: #e6e6e6; */
-  background-color: #ecdaca;
+  background-color: #ffffff;
   padding: 4rem 0;
   text-align: center;
   overflow: hidden;
@@ -585,7 +592,9 @@ h3,
   font-size: clamp(1.5rem, 2vw + 1rem, 2rem);
   font-weight: 600;
   color: #000;
-  margin-bottom: 2.5rem;
+  /* margin-bottom: 2.5rem; */
+  margin-bottom: 3.7rem;
+  margin-top: 0;
 }
 
 .trusted-heading span {
@@ -613,18 +622,21 @@ h3,
 
 /* Logos */
 .logo-slider img {
-  height: 48px;
+  height: 58px;
   width: auto;
   /* filter: grayscale(100%); */
-  opacity: 0.85;
-  transition: all 0.3s ease;
+  /* opacity: 0.85; */
+  /* transition: all 0.3s ease; */
+}
+.slider-top {
+  margin-bottom: 70px;
 }
 
-.logo-slider img:hover {
+/* .logo-slider img:hover {
   filter: grayscale(0%);
   opacity: 1;
   transform: scale(1.05);
-}
+} */
 
 /* Animations */
 @keyframes scrollLeft {
@@ -647,11 +659,9 @@ h3,
 
 /* Responsive tweaks */
 @media (max-width: 768px) {
-
 }
 
 @media (max-width: 480px) {
-
 }
 /* Logo Slider end */
 
@@ -659,42 +669,48 @@ h3,
 /* Our Impact Section */
 .impact-section {
   background-color: #ffffff;
-  padding: 4rem 0;
+  /* padding: 4rem 0; */
   text-align: center;
   color: #000;
 }
 
 .impact-heading {
-  font-size: clamp(1.5rem, 1vw + 1rem, 1.75rem);
+  font-size: 2rem;
   font-weight: 600;
   color: #000;
-  margin: 0 0 2rem;
+  margin: 0 0 4rem;
   line-height: 1.2;
 }
 
 .impact-card {
   position: relative;
-  /* background-color: #eef5ff;  */
-  background-color: #e6e6e6;
+  background-color: #060606;
+  /* background-color: #e6e6e6; */
   border-radius: 16px;
   /* box-shadow: 0 24px 40px rgba(0,0,0,0.04); */
-  padding: 2rem 1rem;
+  /* padding: 2rem 1rem; */
+  padding: 8rem 3rem !important;
   text-align: left;
   overflow: visible;
 }
 
 /* lil mint star burst in top-left corner */
-.impact-star {
+.impact img {
   position: absolute;
   top: -16px;
   left: -16px;
-  width: 48px;
-  height: 48px;
-  background: radial-gradient(circle at 50% 50%, #af0300 0 40%, transparent 41%);
+  width: 40px;
+  border-radius: 5px;
+  height: 40px;
+  background: radial-gradient(
+    circle at 50% 50%,
+    #af0300 0 40%,
+    transparent 41%
+  );
   /* We'll fake spokes with pseudo elements */
 }
 
-.impact-star::before,
+/* .impact-star::before,
 .impact-star::after {
   content: "";
   position: absolute;
@@ -705,9 +721,9 @@ h3,
   background-color: #af0300;
   transform-origin: center;
   border-radius: 2px;
-}
+} */
 
-.impact-star::before {
+/* .impact-star::before {
   transform: translate(-50%, -50%) rotate(20deg);
   box-shadow:
     0 0 0 0 #a5ffe8,
@@ -721,7 +737,7 @@ h3,
     0 0 0 0 #a5ffe8,
     0 0 0 0 #a5ffe8,
     0 0 0 0 #a5ffe8;
-}
+} */
 
 /* Grid layout for stats */
 .impact-grid {
@@ -732,19 +748,18 @@ h3,
 
 /* Desktop: 3 columns x 2 rows like screenshot */
 @media (min-width: 900px) {
- 
 }
 
 .impact-item {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
 }
 
 .impact-value {
-  font-size: clamp(1.5rem, 0.4vw + 1.4rem, 2rem); /* ~32px desktop */
+  font-size: clamp(2.5rem, 0.4vw + 1.4rem, 2rem); /* ~32px desktop */
   font-weight: 600;
-  color: #000;
+  color: #af0300;
   line-height: 1.2;
   display: flex;
   align-items: baseline;
@@ -761,12 +776,10 @@ h3,
 .impact-label {
   font-size: 0.95rem;
   line-height: 1.4;
-  color: #2a2a2a;
+  color: #b3b0b0;
   font-weight: 400;
   margin-top: 0.5rem;
 }
-
-
 
 /* Counter CSS END */
 
@@ -777,7 +790,8 @@ h3,
 .help-section {
   padding: 4rem 0;
   /* background-color: #fff; */
-  background-color: #ecdaca;
+  /* background-color: #ecdaca; */
+  background-color: #ffffff;
   /* background-color: rgba(200, 200, 200); */
   color: #000;
 }
@@ -788,11 +802,11 @@ h3,
   gap: 2rem 3rem;
   align-items: flex-start;
 } */
- .help-grid {
-    display: grid;
-    grid-template-columns: 1fr 1.5fr 1fr;
-    gap: 2rem 3rem;
-    align-items: center;
+.help-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr 1fr;
+  gap: 2rem 3rem;
+  align-items: center;
 }
 
 /* LEFT COLUMN */
@@ -801,7 +815,8 @@ h3,
 }
 
 .help-heading {
-  font-size: clamp(1.8rem, 0.5vw + 1.5rem, 2rem);
+  /* font-size: clamp(1.8rem, 0.5vw + 1.5rem, 2rem); */
+  font-size: 2rem;
   font-weight: 600;
   color: #000;
   line-height: 1.2;
@@ -818,7 +833,8 @@ h3,
 
 .help-cta {
   font-size: 1rem;
-  border-radius: var(--radius-lg);
+  /* border-radius: var(--radius-lg); */
+  border-radius: 25px;
   box-shadow: var(--shadow-cta);
   background-color: var(--brand-blue);
   display: inline-flex;
@@ -826,7 +842,7 @@ h3,
   gap: 0.5rem;
   text-decoration: none;
   color: #fff;
-  padding: 0.9rem 1.25rem;
+  padding: 0.7rem 1.25rem;
   font-weight: 500;
   line-height: 1.2;
   white-space: nowrap;
@@ -843,8 +859,8 @@ h3,
   /* max-width: 360px;         keeps tight like screenshot */
   width: 100%;
   height: auto;
-  border-radius: 8px;       /* optional, remove if your image already has rounded boxes baked in */
-  box-shadow: 0 24px 40px rgba(0,0,0,0.06); /* subtle lift like cards */
+  border-radius: 8px; /* optional, remove if your image already has rounded boxes baked in */
+  box-shadow: 0 24px 40px rgba(0, 0, 0, 0.06); /* subtle lift like cards */
 }
 
 /* RIGHT COLUMN: pills */
@@ -858,7 +874,7 @@ h3,
 
 .pill {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 0.75rem;
   border: 1px solid #af0300;
   border-radius: 999px;
@@ -867,8 +883,9 @@ h3,
   font-size: 0.95rem;
   font-weight: 500;
   color: #1a1a1a;
-  background-color: rgba(33,71,217,0.06); /* faint blue tint */
-  box-shadow: 0 8px 16px rgba(0,0,0,0.04);
+  background-color: #e6e6e6;
+  /* background-color: rgba(33,71,217,0.06); faint blue tint */
+  /* box-shadow: 0 8px 16px rgba(0,0,0,0.04); */
 }
 
 .pill-icon {
@@ -891,15 +908,13 @@ h3,
   font-weight: 500;
 }
 
-
-
 /* WE HELP BUSINESS SECTION CSS END */
 
 /* WHAT WE DO CSS START */
 .whatwedo-section {
-  background-color: #f9fbff;
+  background-color: #060606;
   padding: 5rem 0;
-  color: #000;
+  color: #ffffff;
   text-align: center;
 }
 
@@ -910,14 +925,15 @@ h3,
 }
 
 .whatwedo-header .section-heading {
-  font-size: clamp(2rem, 2vw + 1rem, 2.4rem);
+  /* font-size: clamp(2rem, 2vw + 1rem, 2.4rem); */
+  font-size: 2rem;
   font-weight: 700;
   margin-bottom: 1rem;
 }
 
 .whatwedo-header .section-subtext {
   font-size: 1rem;
-  color: #555;
+  color: #e6e6e6;
   line-height: 1.6;
 }
 
@@ -976,7 +992,7 @@ h3,
 }
 
 .whatwedo-accordion-content p {
-  color: #333;
+  color: #e6e6e6;
   font-size: 0.95rem;
   margin-top: 1rem;
   line-height: 1.6;
@@ -1020,17 +1036,15 @@ h3,
 
 /* Responsive */
 @media (max-width: 900px) {
-
 }
 /* WHAT WE DO CSS END */
-
 
 /* OUR PROCESS CSS START */
 
 .pillars-section {
   /* background: radial-gradient(circle at 20% 20%, #1e4fff 0%, #0029a5 60%); */
   /* background-color: #ffffff; */
-  background-color: #ecdaca;
+  background-color: #060606;
   color: #fff;
   padding: 3rem 0 4rem;
 }
@@ -1041,7 +1055,7 @@ h3,
   line-height: 1.2;
   margin: 0 0 2rem;
   /* color: #fff; */
-  color: #060606;
+  color: #ffffff;
   text-align: left;
 }
 
@@ -1049,8 +1063,8 @@ h3,
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem 2rem;
-  border-top: 1px solid rgba(255,255,255,0.25);
-  border-bottom: 1px solid rgba(255,255,255,0.25);
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
@@ -1063,8 +1077,8 @@ h3,
 
 /* middle column vertical divider left+right like screenshot */
 .pillar-card--borderX {
-  border-left: 1px solid rgba(255,255,255,0.25);
-  border-right: 1px solid rgba(255,255,255,0.25);
+  border-left: 1px solid rgba(255, 255, 255, 0.25);
+  border-right: 1px solid rgba(255, 255, 255, 0.25);
   padding-left: 2rem;
   padding-right: 2rem;
 }
@@ -1074,14 +1088,14 @@ h3,
   font-size: 1.4rem;
   font-weight: 600;
   margin: 0 0 0.75rem;
-  color: #060606;
+  color: #ffffff;
 }
 
 .pillar-desc {
   font-size: 1rem;
   line-height: 1.5;
   /* color: rgba(255,255,255,0.9); */
-  color: #060606;
+  color: #e6e6e6;
   max-width: 32rem;
   margin: 0 0 1.5rem;
 }
@@ -1118,11 +1132,11 @@ h3,
 
 /* Slider card */
 .pillar-slider {
-  background-color: rgba(0,0,0,0.25);
+  background-color: rgba(0, 0, 0, 0.25);
   border-radius: 12px;
   overflow: hidden;
   /* box-shadow: 0 30px 50px rgba(0,0,0,0.4); */
-  border: 1px solid rgba(255,255,255,0.2);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   padding: 0;
   display: flex;
   flex-direction: column;
@@ -1171,7 +1185,7 @@ h3,
 .slider-dots .dot {
   flex: 1;
   height: 4px;
-  background: rgba(255,255,255,0.4);
+  background: rgba(255, 255, 255, 0.4);
   border-radius: 999px;
   transition: background 0.3s;
 }
@@ -1180,15 +1194,14 @@ h3,
   background: #fff;
 }
 
-
 /* OUR PROCESS CSS END */
 
 /* <!-- Our Process of Work section CSS START --> */
 /* ====== BASE SECTION WRAPPER ====== */
 .process-section {
-  background-color: #f5f8fc; /* very light blue/gray backdrop like screenshot */
+  background-color: #060606; /* very light blue/gray backdrop like screenshot */
   padding: 3rem 0 4rem;
-  color: #000;
+  color: #ffffff;
   font-family: "SF Pro Display", system-ui, sans-serif;
 }
 
@@ -1206,14 +1219,14 @@ h3,
   font-weight: 600;
   line-height: 1.2;
   margin: 0;
-  color: #000;
+  color: #ffffff;
 }
 
 .process-intro {
   margin: 0;
   font-size: 0.95rem;
   line-height: 1.5;
-  color: #1a1a1a;
+  color: #e6e6e6;
   max-width: 42ch;
 }
 
@@ -1243,9 +1256,9 @@ h3,
   /* background-color: #dfeadf;  */
   background-color: #e6e6e6;
   cursor: pointer;
-  box-shadow: 0 16px 32px rgba(0,0,0,0.06);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.06);
   transition: all 0.2s ease;
-  border: 1px solid rgba(0,0,0,0.05);
+  border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .process-phase .phase-meta {
@@ -1261,7 +1274,6 @@ h3,
   color: #000;
   line-height: 1.4;
 }
-
 
 .process-phase.active {
   background-color: #af0300;
@@ -1280,7 +1292,7 @@ h3,
 /* hover on desktop */
 @media (hover: hover) {
   .process-phase:not(.active):hover {
-    box-shadow: 0 20px 36px rgba(0,0,0,0.09);
+    box-shadow: 0 20px 36px rgba(0, 0, 0, 0.09);
   }
 }
 
@@ -1304,7 +1316,7 @@ h3,
   left: 22px; /* lined up with center of badges */
   top: 2.25rem; /* below first badge */
   bottom: 2.25rem; /* above last badge */
-  border-left: 2px dotted rgba(0,0,0,0.2);
+  border-left: 2px dotted rgba(0, 0, 0, 0.2);
 }
 
 /* each step */
@@ -1325,15 +1337,15 @@ h3,
   width: 44px;
   height: 44px;
   border-radius: 999px;
-  background-color: #e8eefc;
-  color: #000;
+  background-color: #af0300;
+  color: #ffffff;
   font-size: 1rem;
   font-weight: 600;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 12px 24px rgba(0,0,0,0.08);
-  border: 1px solid rgba(0,0,0,0.05);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.05);
   z-index: 1;
 }
 
@@ -1343,20 +1355,18 @@ h3,
   font-size: 1.05rem;
   font-weight: 600;
   line-height: 1.3;
-  color: #000;
+  color: #ffffff;
 }
 
 .step-body .step-desc {
   margin: 0;
   font-size: 0.9rem;
   line-height: 1.45;
-  color: #1a1a1a;
+  color: #e6e6e6;
   max-width: 60ch;
 }
 
-
 /* <!-- Our Process of Work section CSS START --> */
-
 
 /* <!-- SETUP CHECK LIST SECTION CSS START --> */
 /* ====== SHARED SECTION WRAPPER ====== */
@@ -1406,13 +1416,13 @@ h3,
   flex: 0 0 100%;
   /* background: radial-gradient(circle at 20% 20%, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0) 60%),
               rgba(255,255,255,0.4); */
-              background-color: #ecdaca;
+  background-color: #ecdaca;
   backdrop-filter: blur(20px) saturate(140%);
   -webkit-backdrop-filter: blur(20px) saturate(140%);
   border-radius: 12px;
   border: 2px solid #af0300;
   min-height: 360px;
-  box-shadow: 0 32px 64px rgba(0,0,0,0.06);
+  box-shadow: 0 32px 64px rgba(0, 0, 0, 0.06);
   position: relative;
   padding: 2rem 1rem 2.5rem;
   display: flex;
@@ -1428,17 +1438,17 @@ h3,
   color: #af0300;
   margin: 0 0 1.5rem;
   padding-bottom: 1rem;
-  border-bottom: 1px solid rgba(0,0,0,0.08);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .card-inner {
   flex: 1;
-  border: 1px solid rgba(0,0,0,0.07);
+  border: 1px solid rgba(0, 0, 0, 0.07);
   border-radius: 8px;
   padding: 1.5rem;
-  background: rgba(255,255,255,0.4);
+  background: rgba(255, 255, 255, 0.4);
   display: grid;
-  grid-template-columns: repeat(3,1fr);
+  grid-template-columns: repeat(3, 1fr);
   column-gap: 1.5rem;
   row-gap: 1.5rem;
   font-size: 0.9rem;
@@ -1447,7 +1457,7 @@ h3,
 }
 
 .card-inner > .checklist-col:not(:last-child) {
-  border-right: 1px solid rgba(0,0,0,0.1);
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
   padding-right: 1rem;
 }
 .card-inner > .checklist-col:not(:first-child) {
@@ -1511,8 +1521,8 @@ h3,
   width: 48px;
   height: 48px;
   border-radius: 999px;
-  box-shadow: 0 24px 48px rgba(0,0,0,0.12);
-  border: 1px solid rgba(0,0,0,0.05);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(0, 0, 0, 0.05);
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -1523,8 +1533,12 @@ h3,
   line-height: 1;
   z-index: 5;
 }
-.left-arrow { left: 1rem; }
-.right-arrow { right: 1rem; }
+.left-arrow {
+  left: 1rem;
+}
+.right-arrow {
+  right: 1rem;
+}
 .nav-arrow:disabled {
   opacity: 0.4;
   cursor: not-allowed;
@@ -1552,7 +1566,7 @@ h3,
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  box-shadow: 0 16px 32px rgba(0,0,0,0.06);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.06);
 }
 
 .mobile-card-left {
@@ -1598,14 +1612,14 @@ h3,
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 16px 24px rgba(33,71,217,0.3);
+  box-shadow: 0 16px 24px rgba(33, 71, 217, 0.3);
 }
 
 /* ====== MOBILE OVERLAY ====== */
 .mobile-detail-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.4);
+  background: rgba(0, 0, 0, 0.4);
   opacity: 0;
   pointer-events: none;
   z-index: 9999;
@@ -1625,7 +1639,7 @@ h3,
   max-height: 100%;
   background: #fff;
   border-radius: 0;
-  box-shadow: 0 24px 48px rgba(0,0,0,0.18);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.18);
   padding: 1.5rem 1rem 4rem;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
@@ -1726,16 +1740,15 @@ h3,
   top: 0.15rem;
 }
 
-
-
 /* <!-- SETUP CHECK LIST SECTION CSS END --> */
-
 
 /* OUR WORK SECTION css SLIDER START */
 
 .our-work-section {
   padding: 4rem 2rem;
-  background: #fff;
+  /* background: #fff; */
+  background-color: #060606;
+  color: #ffffff;
   text-align: center;
   overflow: hidden;
   font-family: "SF Pro Display", sans-serif;
@@ -1745,6 +1758,7 @@ h3,
   font-size: 2rem;
   font-weight: 600;
   margin-bottom: 1.5rem;
+  margin-top: 0;
 }
 
 .work-categories {
@@ -1836,13 +1850,21 @@ h3,
 }
 
 @keyframes scrollLeft {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 @keyframes scrollRight {
-  0% { transform: translateX(-50%); }
-  100% { transform: translateX(0); }
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
 
 /* Responsive */
@@ -1866,14 +1888,13 @@ You can make each row move at different speeds to add depth:
 
 /* OUR WORK SECTION CSS SLIDER END */
 
-
 /* TESTIMONIAL SECTION CSS START */
 /* SECTION WRAPPER */
 .testimonials-section {
-  background: #ecdaca; /* that subtle peach tint from screenshot */
+  background: #060606; /* that subtle peach tint from screenshot */
   padding: 4rem 1rem;
   font-family: "SF Pro Display", system-ui, sans-serif;
-  color: #000;
+  color: #ffffff;
 }
 
 /* container helper you already use */
@@ -1899,7 +1920,7 @@ You can make each row move at different speeds to add depth:
   font-size: clamp(1.5rem, 0.4vw + 1.4rem, 2rem);
   font-weight: 600;
   line-height: 1.2;
-  color: #000;
+  color: #ffffff;
   margin: 0;
 }
 
@@ -1908,6 +1929,10 @@ You can make each row move at different speeds to add depth:
   gap: 1rem;
   margin-left: auto;
 }
+/* #testimonialsTrack{
+      cursor: default;
+    transform: translateX(-840px);
+} */
 
 .testi-arrow {
   appearance: none;
@@ -1946,8 +1971,8 @@ You can make each row move at different speeds to add depth:
   background: #ffffff;
   /* background: #e6e6e6; */
   border-radius: 12px;
-  box-shadow: 0 32px 64px rgba(0,0,0,0.07);
-  border: 1px solid rgba(0,0,0,0.07);
+  box-shadow: 0 32px 64px rgba(0, 0, 0, 0.07);
+  border: 1px solid rgba(0, 0, 0, 0.07);
   padding: 2rem 1.5rem 1.5rem;
   display: flex;
   flex-direction: column;
@@ -1960,9 +1985,9 @@ You can make each row move at different speeds to add depth:
   font-size: 1rem;
   line-height: 1.5;
   margin-bottom: 2rem;
-  max-height: 180px;        /* key: limit height */
-  overflow-y: auto;         /* key: scroll appears if long */
-  padding-right: 0.5rem;    /* space for scrollbar */
+  max-height: 180px; /* key: limit height */
+  overflow-y: auto; /* key: scroll appears if long */
+  padding-right: 0.5rem; /* space for scrollbar */
 }
 
 /* OPTIONAL: make scrollbar subtle (WebKit browsers) */
@@ -1970,11 +1995,11 @@ You can make each row move at different speeds to add depth:
   width: 4px;
 }
 .testimonial-text::-webkit-scrollbar-track {
-  background: rgba(0,0,0,0.05);
+  background: rgba(0, 0, 0, 0.05);
   border-radius: 999px;
 }
 .testimonial-text::-webkit-scrollbar-thumb {
-  background: rgba(0,0,0,0.3);
+  background: rgba(0, 0, 0, 0.3);
   border-radius: 999px;
 }
 
@@ -1992,7 +2017,7 @@ You can make each row move at different speeds to add depth:
   border-radius: 999px;
   overflow: hidden;
   flex-shrink: 0;
-  border: 2px solid rgba(104,63,204,0.15); /* soft purple rim */
+  border: 2px solid #af0300; /* soft purple rim */
 }
 
 .testimonial-avatar img {
@@ -2019,10 +2044,10 @@ You can make each row move at different speeds to add depth:
   line-height: 1.3;
 }
 /* font aswome icon */
-.fa-user{
+.fa-user {
   color: #af0300;
-    font-size: 28px;
-    padding: 4px 0px 0px 4px;
+  font-size: 28px;
+  padding: 4px 0px 0px 4px;
 }
 /* font awsome icon */
 
@@ -2040,7 +2065,7 @@ You can make each row move at different speeds to add depth:
   }
 
   .testimonials-arrows {
-    order: -1;
+    order: -0;
   }
 
   .testimonial-card {
@@ -2059,7 +2084,7 @@ You can make each row move at different speeds to add depth:
 
 /* ====== ABOUT TEAM SECTION ====== */
 .about-team-section {
-  background: #ffffff;
+  background: #060606;
   padding: 4rem 0;
   position: relative;
   font-family: "SF Pro Display", system-ui, sans-serif;
@@ -2074,35 +2099,32 @@ You can make each row move at different speeds to add depth:
   position: relative;
 }
 
-
 .about-team-copy {
   position: relative;
   max-width: 600px;
 }
 
 .about-team-heading {
-  font-size: clamp(1.75rem, 0.6vw + 1.5rem, 2rem); 
+  font-size: clamp(1.75rem, 0.6vw + 1.5rem, 2rem);
   font-weight: 600;
   line-height: 1.25;
-  color: #000;
+  color: #ffffff;
   margin: 0 0 1.5rem;
 }
 
 .about-team-desc {
   font-size: 1rem;
   line-height: 1.5;
-  color: #2a2a2a;
+  color: #e6e6e6;
   margin: 0 0 2rem;
   max-width: 560px;
   font-weight: 400;
 }
 
-
 .about-team-cta {
   display: inline-flex;
   margin-bottom: 3rem;
 }
-
 
 .about-watermark {
   position: absolute;
@@ -2120,18 +2142,16 @@ You can make each row move at different speeds to add depth:
   display: block;
 }
 
-
 .about-team-gallery {
   display: grid;
-  grid-template-columns: 1fr 1fr;         
-  grid-template-rows: auto auto;          
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
   grid-template-areas:
     "hero banner"
     "meeting floor";
   gap: 1.25rem;
   align-content: start;
 }
-
 
 .about-img--hero {
   grid-area: hero;
@@ -2146,7 +2166,6 @@ You can make each row move at different speeds to add depth:
   grid-area: floor;
 }
 
-
 .about-img {
   border-radius: 12px;
   overflow: hidden;
@@ -2160,7 +2179,6 @@ You can make each row move at different speeds to add depth:
   height: 100%;
   object-fit: cover;
 }
-
 
 @media (max-width: 768px) {
   .about-team-inner {
@@ -2182,17 +2200,17 @@ You can make each row move at different speeds to add depth:
 /* ===== FAQ SECTION ===== */
 
 .faq-section {
-  background-color: #fff;
+  background-color: #060606;
   padding: 4rem 0;
   font-family: "SF Pro Display", system-ui, sans-serif;
-  color: #000;
+  /* color: #000; */
 }
 
 .faq-heading {
   text-align: center;
   font-size: clamp(1.5rem, 0.6vw + 1.3rem, 2rem);
   font-weight: 600;
-  color: #000;
+  color: #ffffff;
   line-height: 1.2;
   margin: 0 0 2.5rem;
 }
@@ -2206,18 +2224,19 @@ You can make each row move at different speeds to add depth:
 
 /* Card container (the rounded light box) */
 .faq-card {
-  background: radial-gradient(circle at 0% 0%, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0) 60%), rgba(255,255,255,0.4);
+  /* background: radial-gradient(circle at 0% 0%, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0) 60%), rgba(255,255,255,0.4); */
   backdrop-filter: blur(16px) saturate(140%);
   -webkit-backdrop-filter: blur(16px) saturate(140%);
-  border: 1px solid rgba(0,0,0,0.08);
+  border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 12px;
-  box-shadow: 0 32px 64px rgba(0,0,0,0.05);
+  box-shadow: 0 32px 64px rgba(0, 0, 0, 0.05);
   overflow: hidden;
+  background-color: #ffffff;
 }
 
 /* Each Q/A block */
 .faq-item {
-  border-bottom: 1px solid rgba(0,0,0,0.06);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 }
 .faq-item:last-child {
   border-bottom: 0;
@@ -2244,7 +2263,7 @@ You can make each row move at different speeds to add depth:
 
 .faq-q-text {
   flex: 1;
-  color: #000;
+  color: #060606;
   font-weight: 500;
   line-height: 1.4;
 }
@@ -2265,15 +2284,15 @@ You can make each row move at different speeds to add depth:
   padding: 0 1.25rem;
   font-size: 0.95rem;
   line-height: 1.5;
-  color: #2a2a2a;
-  background: transparent;
+  color: #060606af;
+  /* background: transparent; */
   transition: max-height 0.25s ease;
 }
 
 .faq-answer p {
   margin: 0 0 1rem;
   padding-bottom: 1.25rem;
-  border-bottom: 1px solid rgba(0,0,0,0.06);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 /* Open state */
@@ -2300,7 +2319,8 @@ You can make each row move at different speeds to add depth:
 /* ===== OUTCOMES SECTION ===== */
 
 .outcomes-section {
-  background-color: #fff;
+  /* background-color: #fff; */
+  background-color: #060606;
   padding: 4rem 0 5rem;
   font-family: "SF Pro Display", system-ui, sans-serif;
   color: #000;
@@ -2308,9 +2328,10 @@ You can make each row move at different speeds to add depth:
 
 .outcomes-heading {
   text-align: center;
-  font-size: clamp(1.5rem, 0.6vw + 1.3rem, 2rem);
+  /* font-size: clamp(1.5rem, 0.6vw + 1.3rem, 2rem); */
+  font-size: 2rem;
   font-weight: 600;
-  color: #000;
+  color: #ffffff;
   margin: 0 0 0.75rem;
   line-height: 1.2;
 }
@@ -2321,7 +2342,7 @@ You can make each row move at different speeds to add depth:
   margin: 0 auto 2rem;
   font-size: 1rem;
   line-height: 1.5;
-  color: #2a2a2a;
+  color: #e6e6e6;
   font-weight: 400;
 }
 
@@ -2337,14 +2358,15 @@ You can make each row move at different speeds to add depth:
 .outcomes-nav {
   appearance: none;
   border: 0;
-  background: rgba(255,255,255,0.7);
+  /* background: rgba(255,255,255,0.7); */
+  background-color: #af0300;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   width: 52px;
   height: 52px;
   border-radius: 999px;
-  box-shadow: 0 24px 48px rgba(0,0,0,0.15);
-  border: 1px solid rgba(0,0,0,0.05);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(0, 0, 0, 0.05);
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -2359,6 +2381,10 @@ You can make each row move at different speeds to add depth:
 .outcomes-nav:disabled {
   opacity: 0.4;
   cursor: not-allowed;
+}
+.outcomes-nav-icon {
+  color: #ffffff;
+  font-weight: 900 !important;
 }
 
 /* viewport */
@@ -2382,11 +2408,12 @@ You can make each row move at different speeds to add depth:
 
 /* each slide card */
 .outcome-card {
-  flex: 0 0 450px; 
-  background: #0a2fa4; /* deep blue */
-  color: #fff;
+  flex: 0 0 450px;
+  /* background: #0a2fa4; deep blue */
+  background-color: #ffffff;
+  /* color: #fff; */
   border-radius: 12px;
-  box-shadow: 0 32px 64px rgba(0,0,0,0.12);
+  /* box-shadow: 0 32px 64px rgba(0,0,0,0.12); */
   overflow: hidden;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -2395,8 +2422,8 @@ You can make each row move at different speeds to add depth:
 
 /* left side (blue stats) */
 .outcome-card-left {
-  background: #060606;
-  color: #fff;
+  /* background: #060606; */
+  /* color: #fff; */
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
@@ -2407,7 +2434,7 @@ You can make each row move at different speeds to add depth:
   font-size: 1.125rem;
   line-height: 1.3;
   font-weight: 600;
-  color: #fff;
+  color: #060606;
   margin: 0;
 }
 
@@ -2420,7 +2447,7 @@ You can make each row move at different speeds to add depth:
 .outcome-label {
   font-size: 0.8rem;
   line-height: 1.4;
-  color: rgba(255,255,255,0.75);
+  color: #060606;
   margin: 0;
 }
 
@@ -2428,7 +2455,7 @@ You can make each row move at different speeds to add depth:
   font-size: 1.25rem;
   font-weight: 600;
   line-height: 1.2;
-  color: #fff;
+  color: #af0300;
   margin: 0;
 }
 
@@ -2455,7 +2482,7 @@ You can make each row move at different speeds to add depth:
 }
 .outcomes-progress-bar {
   height: 100%;
-  background: #1a1a1a;
+  background: #af0300;
   border-radius: 999px;
   width: 0%;
   transition: width 0.15s linear;
@@ -2495,11 +2522,10 @@ You can make each row move at different speeds to add depth:
 
 /* <!-- OUT COMES SECTION END --> */
 
-
 /* CTA CSS START */
 
 /* CTA Form CSS Start */
-.container {
+.cta-container {
   background-color: #060606;
   width: 100%;
   display: grid;
@@ -2955,14 +2981,13 @@ button.subscribe {
     padding-left: 0;
   }
   .card-inner > .checklist-col:nth-child(3) {
-    border-top: 1px solid rgba(0,0,0,0.1);
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
     padding-top: 1rem;
     grid-column: 1 / -1;
   }
 }
 
 /* RESPONSIVE CSS OF SETUP CHECK_LIST END */
-
 
 @media (max-width: 1024px) {
   .footer-main {
@@ -2986,8 +3011,8 @@ button.subscribe {
   .pillar-card--borderX {
     border-left: none;
     border-right: none;
-    border-top: 1px solid rgba(255,255,255,0.25);
-    border-bottom: 1px solid rgba(255,255,255,0.25);
+    border-top: 1px solid rgba(255, 255, 255, 0.25);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
     padding: 2rem 0;
   }
 
@@ -3006,7 +3031,6 @@ button.subscribe {
     margin-bottom: 2.5rem;
   }
 }
-
 
 /* WHAT WE DO RESPONSIVE CSS END */
 
@@ -3061,12 +3085,12 @@ button.subscribe {
     left: 0;
     right: 0;
   }
-      .container {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
+  .container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
 
-    /* WE HELP BUSINESS CSS START */
+  /* WE HELP BUSINESS CSS START */
   .help-grid {
     grid-template-columns: 1fr 1fr;
   }
@@ -3110,8 +3134,7 @@ button.subscribe {
   }
   /* WHAT WE DO CSS END */
 
-
-/* <!-- Our Process of Work section RESPONSIVE CSS START --> */
+  /* <!-- Our Process of Work section RESPONSIVE CSS START --> */
   .process-head {
     grid-template-columns: 1fr;
     text-align: left;
@@ -3142,14 +3165,11 @@ button.subscribe {
   .process-timeline::before {
     left: 22px;
   }
-/* <!-- Our Process of Work section RESPONSIVE CSS START --> */
-
-
+  /* <!-- Our Process of Work section RESPONSIVE CSS START --> */
 }
 
-
-@media (min-width: 900px){
-    /* Counter CSS START */
+@media (min-width: 900px) {
+  /* Counter CSS START */
   .impact-card {
     padding: 3rem 2.5rem;
   }
@@ -3157,12 +3177,12 @@ button.subscribe {
   .impact-grid {
     grid-template-columns: repeat(3, 1fr);
   }
-  .impact-star{
+  /* .impact-star{
     width: 44px;
     height: 44px;
     top: -12px;
     left: -12px;
-  }
+  } */
 }
 /* Mobile behavior */
 @media (max-width: 899px) {
@@ -3193,7 +3213,7 @@ button.subscribe {
   .mobile-only {
     display: block !important; /* show mobile cards */
   }
-  .checklist-viewport{
+  .checklist-viewport {
     overflow: hidden;
   }
 }
@@ -3201,7 +3221,7 @@ button.subscribe {
 /* SETUP CHECK_LIST SECTION responsive CSS END */
 
 @media (max-width: 768px) {
-    .footer-navigation {
+  .footer-navigation {
     padding: 40px 20px 30px;
   }
 
@@ -3211,7 +3231,7 @@ button.subscribe {
   .footer-col {
     display: none; /* Hide all footer columns on mobile */
   }
-/* Show accordion */
+  /* Show accordion */
   .accordion {
     display: block;
     border-top: 1px solid #e5e7eb;
@@ -3248,15 +3268,15 @@ button.subscribe {
   }
 
   /* Header video */
-  .video-card::before{
+  .video-card::before {
     /* padding-top: 30%; */
   }
-  .hero-video{
+  .hero-video {
     object-fit: cover;
   }
 
   /* logo slider start */
-    .slide-track {
+  .slide-track {
     gap: 2rem;
   }
 
@@ -3267,7 +3287,7 @@ button.subscribe {
 
   /* SETUP CHECK_LIST RESPONSIVE CSS START */
 
-    /* still hidden because desktop-only is display:none,
+  /* still hidden because desktop-only is display:none,
      but let's keep this so layout doesn't explode
      if someone force-shows it */
   .card-inner {
@@ -3275,7 +3295,7 @@ button.subscribe {
   }
   .card-inner > .checklist-col {
     border-right: none !important;
-    border-top: 1px solid rgba(0,0,0,0.1);
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
     padding: 1rem 0 0 0 !important;
   }
   .card-inner > .checklist-col:first-child {
@@ -3284,32 +3304,29 @@ button.subscribe {
   }
 
   /* SETUP CHECK_LIST RESPONSIVE CSS END */
-
-
 }
 @media (max-width: 640px) {
-    .container {
-        padding: 10px 10px 20px 10px;
-    }
-    .cta-hero {
-           margin-bottom: 4rem;
-    }
-    .hero-headline {
-  /* font-size: clamp(1rem);   ~32-48px range */
-  font-size: 26px;
+  .cta-container {
+    padding: 10px 10px 20px 10px;
+  }
+  .cta-hero {
+    margin-bottom: 4rem;
+  }
+  .hero-headline {
+    /* font-size: clamp(1rem);   ~32-48px range */
+    font-size: 26px;
+  }
 
-}
+  .hero-subtext {
+    /* font-size: clamp(16px, 1vw + 28.8px); */
+  }
 
-.hero-subtext{
-  /* font-size: clamp(16px, 1vw + 28.8px); */
-}
+  .hero-section {
+    padding-top: 60px !important;
+  }
 
-.hero-section {
-padding-top: 60px !important;
-}
-
-/* WE HELP BUSNESS SECTION CSS START */
- .help-grid {
+  /* WE HELP BUSNESS SECTION CSS START */
+  .help-grid {
     grid-template-columns: 1fr;
   }
 
@@ -3345,8 +3362,7 @@ padding-top: 60px !important;
     font-size: 0.9rem;
     line-height: 1.4;
   }
-/* WE HELP BUSINESS SECTION CSS END */
-
+  /* WE HELP BUSINESS SECTION CSS END */
 }
 /* @media (min-width: 600px){
   .impact-grid{
@@ -3359,14 +3375,14 @@ padding-top: 60px !important;
     max-width: 180px;
   }
   .logo-slider {
-  position: relative;
-  overflow: hidden;
-  white-space: nowrap;
-  margin-bottom: 1.5rem;
-}
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+    margin-bottom: 1.5rem;
+  }
 
   /* logo slider start */
-    .logo-slider img {
+  .logo-slider img {
     height: 28px;
   }
 
@@ -3375,26 +3391,69 @@ padding-top: 60px !important;
     margin-bottom: 2rem;
   }
   /* logo slider END */
-   .impact-grid{
-  grid-template-columns: repeat(2,1fr);
+  .impact-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
   .outcome-card {
     max-height: 500px;
   }
-  .outcomes-nav{
+  .outcomes-nav {
     display: none;
   }
-  .outcome-title, .outcome-value{
-font-size: 1rem;
+  .outcome-title,
+  .outcome-value {
+    font-size: 1rem;
   }
-  .outcome-card-left{
+  .outcome-card-left {
     gap: 0.7rem;
   }
-      .help-grid {
-        display: flex;
-        /* grid-template-columns: 1fr; */
-        flex-direction: column;
-        gap: 20px;
+  .help-grid {
+    display: flex;
+    /* grid-template-columns: 1fr; */
+    flex-direction: column;
+    gap: 20px;
+  }
+  .cta-container {
+    background-color: #060606;
+    width: 100%;
+    /* display: grid
+; */
+    grid-template-columns: 1fr 1fr;
+    padding: 50px 10px;
+}
+.left-section h1 {
+    font-size: 40px;
+    font-weight: 800;
+    line-height: 68px;
+    text-transform: capitalize;
+    margin-bottom: 20px;
+    margin-top: 0;
+}
+    .cta-container {
+        background-color: #060606;
+        width: 100%;
+        /* display: grid
+; */
+        grid-template-columns: 1fr 1fr;
+        padding: 0px 10px 50px 10px;
     }
+    .group label {
+    /* font-family: Manrope; */
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 22px;
+    text-align: left;
+    color: #222;
+}
+}
+@media (max-width: 375px){
+  .left-section h1 {
+    font-size: 32px;
+    font-weight: 800;
+    line-height: 68px;
+    text-transform: capitalize;
+    margin-bottom: 20px;
+    margin-top: 0;
 
+}
 }
