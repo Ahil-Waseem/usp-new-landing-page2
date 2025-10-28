@@ -14,6 +14,39 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <style>
+      /* default button look (disabled/idle) */
+      .subscribe.subsBtn {
+        background: #060606; /* grey before typing */
+        color: #fff;
+        border: none;
+        border-radius: 25px;
+        padding: 0.8rem 1.25rem;
+        font-family: "SF Pro Display", system-ui, sans-serif;
+        font-size: 0.9rem;
+        font-weight: 600;
+        line-height: 1.2;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        min-width: 120px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      /* once user typed anything -> turn red */
+      .subscribe.subsBtn.active {
+        background: #af0300; /* Signature Red */
+      }
+
+      /* while submitting -> lock it visually */
+      .subscribe.subsBtn.loading {
+        background: #af0300;
+        opacity: 0.6;
+        cursor: not-allowed;
+        pointer-events: none;
+      }
+    </style>
   </head>
 
   <body>
@@ -37,10 +70,10 @@
         </nav>
 
         <!-- Desktop CTA -->
-        <a href="#book" class="cta-button cta-desktop">
+        <a href="tel:+91 9833022443" class="cta-button cta-desktop">
           <!-- <span class="phone-icon">📞</span> -->
           <i class="fa-solid fa-phone"></i>
-          <span>Book a Call</span>
+          <span>Get In Touch</span>
         </a>
 
         <!-- Mobile hamburger -->
@@ -107,7 +140,7 @@
        Marketing & Branding Solutions for Growth Focused Business
       </p> -->
 
-        <a href="#book" class="cta-button cta-hero">
+        <a href="#contact-form" class="cta-button cta-hero">
           <!-- <span class="phone-icon">📞</span> -->
           <i class="fa-solid fa-phone"></i>
           <span>Book a Call</span>
@@ -203,7 +236,9 @@
 
         <div class="impact-card">
           <!-- Decorative star -->
-          <div class="impact" aria-hidden="true"><img src="assets/images/favicon.jpeg" alt=""></div>
+          <div class="impact" aria-hidden="true">
+            <img src="assets/images/favicon.jpeg" alt="" />
+          </div>
 
           <div class="impact-grid">
             <!-- Stat 1 -->
@@ -329,7 +364,9 @@
         <div class="outcomes-wrapper">
           <!-- LEFT ARROW -->
           <button class="outcomes-nav outcomes-prev" aria-label="Previous">
-            <span class="outcomes-nav-icon"><i class="fa-solid fa-arrow-left"></i></span>
+            <span class="outcomes-nav-icon"
+              ><i class="fa-solid fa-arrow-left"></i
+            ></span>
           </button>
 
           <!-- VIEWPORT -->
@@ -471,7 +508,9 @@
 
           <!-- RIGHT ARROW -->
           <button class="outcomes-nav outcomes-next" aria-label="Next">
-            <span class="outcomes-nav-icon"><i class="fa-solid fa-arrow-right"></i></span>
+            <span class="outcomes-nav-icon"
+              ><i class="fa-solid fa-arrow-right"></i
+            ></span>
           </button>
         </div>
 
@@ -1166,10 +1205,10 @@
 
         <div class="testimonials-arrows">
           <button class="testi-arrow" id="testiPrev" aria-label="Previous">
-            ←
+            <i class="fa-solid fa-arrow-left"></i>
           </button>
           <button class="testi-arrow" id="testiNext" aria-label="Next">
-            →
+            <i class="fa-solid fa-arrow-right"></i>
           </button>
         </div>
       </div>
@@ -1318,7 +1357,7 @@
             creating solutions that deliver impact where it counts.
           </p>
 
-          <a href="#book" class="cta-button about-team-cta">
+          <a href="tel:+91 9833022443" class="cta-button about-team-cta">
             <i class="fa-solid fa-phone"></i>
             <span>Book a Call</span>
           </a>
@@ -1542,7 +1581,7 @@
     </section>
     <!-- FAQ END -->
 
-    <!-- CTA FORM STAT -->
+    <!-- CTA FORM STArT -->
     <div class="cta-container" id="contact-form">
       <div class="left-section">
         <h1>Let's Work Together</h1>
@@ -1740,7 +1779,11 @@
           </div>
 
           <div class="form-btn">
-            <button type="submit" class="submit-btn book-call-btn">
+            <button
+              type="submit"
+              class="submit-btn book-call-btn"
+              id="submitBtn"
+            >
               <i class="fa-solid fa-phone"></i>
               <span class="btn-text">Book a Call</span>
             </button>
@@ -1836,7 +1879,7 @@
                   class="placeholder"
                   type="email"
                   name="email"
-                  id="email"
+                  id="newsletter-email-desktop"
                   required
                   placeholder="example@gmail.com"
                 />
@@ -1844,9 +1887,10 @@
                   class="subscribe subsBtn"
                   type="submit"
                   name="submit"
+                  id="newsletter-btn-desktop"
                   value="Subscribe"
                 >
-                  Subscribe
+                  <span class="btn-text">Subscribe</span>
                 </button>
               </form>
             </div>
@@ -1908,7 +1952,7 @@
                   class="placeholder"
                   type="email"
                   name="email"
-                  id="email"
+                  id="newsletter-email-mobile"
                   required
                   placeholder="example@gmail.com"
                 /><br />
@@ -1917,8 +1961,9 @@
                   type="submit"
                   name="submit"
                   value="Subscribe"
+                  id="newsletter-btn-mobile"
                 >
-                  Subscribe
+                  <span class="btn-text">Subscribe</span>
                 </button>
               </form>
             </div>
@@ -2006,6 +2051,102 @@
         </div>
       </div>
     </footer>
+
+    <!-- CTA POPUP OVERLAY -->
+    <!-- <div id="leadModalOverlay" class="lead-modal-overlay" aria-hidden="true">
+  <div class="lead-modal" role="dialog" aria-modal="true" aria-labelledby="leadModalTitle">
+    <button class="lead-close-btn" id="leadModalClose" aria-label="Close popup">✕</button>
+<div class="lead-modal-inner">
+    <h2 id="leadModalTitle" class="lead-modal-heading">
+      Let's Work Together
+    </h2>
+    <p class="lead-modal-sub">
+      Tell us a bit about you — we’ll reach out.
+    </p>
+
+    <form
+      id="popupContactForm"
+      class="lead-form"
+      action="https://script.google.com/macros/s/AKfycbxwdQOdADinLPYMp-UF_yiA-iWhogDBCLwRPF1AZ184wpBFRvX4eHk7W9H539rxxugZ/exec"
+      method="post"
+    >
+      <div class="lead-row">
+        <div class="lead-field">
+          <label>Name*</label>
+          <input
+            type="text"
+            name="name"
+            placeholder="Enter your full name"
+            required
+          />
+        </div>
+        <div class="lead-field">
+          <label>Company Name*</label>
+          <input
+            type="text"
+            name="company"
+            placeholder="Enter your company name"
+            required
+          />
+        </div>
+      </div>
+
+      <div class="lead-row">
+        <div class="lead-field">
+          <label>Phone Number*</label>
+          <input
+            type="tel"
+            name="phone"
+            placeholder="Enter your phone number"
+            required
+          />
+        </div>
+        <div class="lead-field">
+          <label>Business Email ID*</label>
+          <input
+            type="email"
+            name="email"
+            placeholder="Enter your business email address"
+            required
+          />
+        </div>
+      </div>
+
+      <div class="lead-field">
+        <label>Service*</label>
+        <select name="service" required>
+          <option value="" disabled selected>Select</option>
+          <option value="technology">Branding, Strategy & Identity</option>
+          <option value="healthcare">Design & Communication</option>
+          <option value="finance">Website & App Design + Development</option>
+          <option value="retail">Social Media & Performance Marketing</option>
+          <option value="manufacturing">Video Production</option>
+          <option value="education">Influencer & Experiential Marketing</option>
+          <option value="other">Lead Generation & Automation</option>
+        </select>
+      </div>
+
+      <div class="lead-check">
+        <input type="checkbox" name="agreement" id="popup-agreement" />
+        <label for="popup-agreement">
+          I agree to receive e-mails and WhatsApp messages from Unstoppable
+          Creative Agency containing promotional offers, notifications, and
+          messages.
+        </label>
+      </div>
+
+      <button
+        type="submit"
+        class="lead-submit-btn"
+        id="popupSubmitBtn"
+      >
+        <i class="fa-solid fa-phone"></i>
+        <span class="btn-text">Book a Call</span>
+      </button>
+    </form>
+  </div>
+</div>
+</div> -->
     <!-- <link rel="stylesheet" href="script.js"> -->
     <script src="script.js"></script>
   </body>

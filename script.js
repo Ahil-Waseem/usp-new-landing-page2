@@ -630,3 +630,229 @@ if (overlay) {
 })();
 
 // OUTCOMES SCRIPT END
+
+
+// ===============================
+// Footer Accordion Toggle button animation
+// ===============================
+function toggleAccordion(header) {
+  const item = header.parentElement;
+  const allItems = document.querySelectorAll(".accordion-item");
+
+  // Close other accordions
+  allItems.forEach((otherItem) => {
+    if (otherItem !== item && otherItem.classList.contains("active")) {
+      otherItem.classList.remove("active");
+    }
+  });
+
+  // Toggle current accordion
+  item.classList.toggle("active");
+}
+// CONTACT FORM SUBMIT + REDIRECT
+(function () {
+  const form = document.getElementById("contactForm");
+  const submitBtn = document.getElementById("submitBtn");
+  const btnTextEl = submitBtn.querySelector(".btn-text");
+
+  if (!form || !submitBtn) return;
+
+  form.addEventListener("submit", async function (e) {
+    e.preventDefault(); // stop normal browser navigation
+
+    // 1. Lock the button UI
+    submitBtn.disabled = true;
+    submitBtn.classList.add("loading"); // optional style hook
+    btnTextEl.textContent = "Submitting...";
+
+    // 2. Prepare data to send (same fields you already have)
+    const formData = new FormData(form);
+
+    try {
+      // 3. Send to your Google Apps Script
+      const response = await fetch(form.action, {
+        method: "POST",
+        body: formData,
+        mode: "no-cors", // Apps Script usually needs this so fetch doesn't block
+      });
+
+      // 4. OPTIONAL: clear the form now so if user comes back, it's empty
+      form.reset();
+
+      // 5. Force redirect to thankyou page
+      window.location.href = "thankyou.html";
+    } catch (err) {
+      console.error("Form submit failed:", err);
+
+      // fallback: unlock button so user can retry
+      submitBtn.disabled = false;
+      submitBtn.classList.remove("loading");
+      btnTextEl.textContent = "Book a Call";
+
+      alert("Something went wrong. Please try again.");
+    }
+  });
+})();
+
+
+// Pop UP Form
+
+// =======================
+// LEAD POPUP LOGIC
+// =======================
+(function () {
+  const overlay = document.getElementById("leadModalOverlay");
+  const closeBtn = document.getElementById("leadModalClose");
+
+  if (!overlay) return;
+
+  // open the modal
+  function openLeadModal() {
+    overlay.classList.add("active");
+    document.body.classList.add("modal-open");
+  }
+
+  // close the modal
+  function closeLeadModal() {
+    overlay.classList.remove("active");
+    document.body.classList.remove("modal-open");
+  }
+
+  // auto-open after 3 seconds on page load
+  setTimeout(() => {
+    openLeadModal();
+  }, 3000);
+
+  // close on X click
+  if (closeBtn) {
+    closeBtn.addEventListener("click", closeLeadModal);
+  }
+
+  // close if user clicks outside modal box
+  overlay.addEventListener("click", (e) => {
+    if (e.target === overlay) {
+      closeLeadModal();
+    }
+  });
+})();
+// POPUP CONTACT FORM SUBMIT + REDIRECT
+(function () {
+  const form = document.getElementById("popupContactForm");
+  const submitBtn = document.getElementById("popupSubmitBtn");
+  if (!form || !submitBtn) return;
+
+  const btnTextEl = submitBtn.querySelector(".btn-text");
+
+  form.addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    // lock UI
+    submitBtn.disabled = true;
+    submitBtn.classList.add("loading");
+    btnTextEl.textContent = "Submitting...";
+
+    const formData = new FormData(form);
+
+    try {
+      await fetch(form.action, {
+        method: "POST",
+        body: formData,
+        mode: "no-cors",
+      });
+
+      // reset the form so if user comes back it's clean
+      form.reset();
+
+      // redirect
+      window.location.href = "thankyou.html";
+    } catch (err) {
+      console.error("Popup form submit failed:", err);
+
+      submitBtn.disabled = false;
+      submitBtn.classList.remove("loading");
+      btnTextEl.textContent = "Book a Call";
+
+      alert("Something went wrong. Please try again.");
+    }
+  });
+})();
+
+// newslatter form
+
+// =======================
+// NEWSLETTER FORMS (desktop + mobile)
+// =======================
+(function () {
+  // helper to attach behavior to ANY newsletter form
+  function setupNewsletter(formId, inputId, buttonId) {
+    const form = document.getElementById(formId);
+    const emailInput = document.getElementById(inputId);
+    const btn = document.getElementById(buttonId);
+
+    if (!form || !emailInput || !btn) return;
+
+    const btnTextSpan = btn.querySelector(".btn-text");
+
+    // 1. When user types, turn button red if there's any value
+    emailInput.addEventListener("input", () => {
+      if (emailInput.value.trim().length > 0) {
+        btn.classList.add("active");
+      } else {
+        btn.classList.remove("active");
+      }
+    });
+
+    // 2. On submit: block default, show loading, send to Apps Script, redirect
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      // basic front-end validation: don't submit empty or invalid
+      // (browser `required` + type=email will also help)
+      if (emailInput.value.trim().length === 0) return;
+
+      // lock UI
+      btn.disabled = true;
+      btn.classList.add("loading");
+      if (btnTextSpan) btnTextSpan.textContent = "Subscribing...";
+
+      const formData = new FormData(form);
+
+      try {
+        await fetch(form.action, {
+          method: "POST",
+          body: formData,
+          mode: "no-cors", // Apps Script usually requires this
+        });
+
+        // clean the form so Back button doesn't keep value
+        form.reset();
+        btn.classList.remove("active");
+
+        // redirect to thank you page
+        window.location.href = "thankyou.html";
+      } catch (err) {
+        console.error("Newsletter submit failed:", err);
+
+        // unlock so they can retry
+        btn.disabled = false;
+        btn.classList.remove("loading");
+        if (btnTextSpan) btnTextSpan.textContent = "Subscribe";
+
+        alert("Something went wrong. Please try again.");
+      }
+    });
+  }
+
+  // attach behavior to both desktop + mobile newsletter forms
+  setupNewsletter(
+    "newsletter-form",           // desktop form id
+    "newsletter-email-desktop",  // desktop input id
+    "newsletter-btn-desktop"     // desktop button id
+  );
+
+  setupNewsletter(
+    "newsletter-form-mobile",    // mobile form id
+    "newsletter-email-mobile",   // mobile input id
+    "newsletter-btn-mobile"      // mobile button id
+  );
+})();

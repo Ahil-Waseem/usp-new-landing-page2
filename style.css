@@ -71,7 +71,7 @@
 
 body {
   margin: 0;
-  background: #ffffff;
+  background: #060606;
   scroll-behavior: smooth;
   font-family: "SF Pro Display", "Inter", Arial, sans-serif;
 }
@@ -1757,7 +1757,7 @@ h3,
 .our-work-heading {
   font-size: 2rem;
   font-weight: 600;
-  margin-bottom: 1.5rem;
+  margin-bottom: 3.5rem;
   margin-top: 0;
 }
 
@@ -1802,7 +1802,7 @@ h3,
 .work-slider {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 2.5rem;
   overflow: hidden;
   position: relative;
 }
@@ -2061,9 +2061,15 @@ You can make each row move at different speeds to add depth:
 @media (max-width: 640px) {
   .testimonials-header {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
   }
-
+  .testimonials-header {
+    margin-bottom: 1.5rem;
+  }
+  .about-team-section {
+    padding-top: 0 !important;
+  }
+     
   .testimonials-arrows {
     order: -0;
   }
@@ -2491,6 +2497,23 @@ You can make each row move at different speeds to add depth:
 /* RESPONSIVE */
 @media (max-width: 900px) {
   /* card should become single-column: stats on top, image full-width under */
+  /* .outcome-card {
+    flex: 0 0 80%;
+    min-width: 80%;
+    grid-template-columns: 1fr;
+  }
+
+  .outcome-card-right {
+    order: 2;
+    min-height: 180px;
+  }
+
+  .outcome-card-left {
+    order: 1;
+  } */
+}
+
+@media (max-width: 600px) {
   .outcome-card {
     flex: 0 0 80%;
     min-width: 80%;
@@ -2505,18 +2528,19 @@ You can make each row move at different speeds to add depth:
   .outcome-card-left {
     order: 1;
   }
-}
-
-@media (max-width: 600px) {
-  .outcome-card {
+  /* .outcome-card {
     flex: 0 0 90%;
     min-width: 90%;
-  }
+  } */
 
   .outcomes-nav {
     width: 44px;
     height: 44px;
     font-size: 1rem;
+  }
+  .pill-icon {
+    min-width: 20px;
+    min-height: 20px;
   }
 }
 
@@ -2578,6 +2602,7 @@ You can make each row move at different speeds to add depth:
   line-height: 22.4px;
   text-decoration: none;
   color: #fff;
+  margin-top: 0px;
 }
 
 .form-section {
@@ -2676,15 +2701,16 @@ select option:first-child {
 }
 
 .submit-btn {
-  width: 100%;
-  padding: 16px;
-  background: #060606;
+  /* width: 100%; */
+  width: 170px;
+  padding: 12px;
+  background: #af0300;
   color: white;
   border: none;
-  border-radius: 8px;
+  border-radius: 25px;
   /* font-size: 1rem; */
-  font-size: 16px;
-  font-weight: 600;
+  font-size: 15px;
+  font-weight: 500;
   cursor: pointer;
   margin-top: 20px;
   display: flex;
@@ -2701,6 +2727,13 @@ select option:first-child {
 .submit-btn svg {
   width: 18px;
   height: 18px;
+}
+.form-btn{
+      display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+
 }
 
 /* CTA form CSS End */
@@ -2964,6 +2997,232 @@ button.subscribe {
   border: none;
   font-weight: 600;
 }
+
+/* POPUP FORM START */
+/* ========== MODAL OVERLAY ========== */
+/* Overlay behind modal */
+.lead-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(6px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  z-index: 99999;
+}
+
+/* visible state */
+.lead-modal-overlay.active {
+  display: flex;
+}
+
+/* Modal shell */
+.lead-modal {
+  background: #e6e6e6;
+  color: #060606;
+  font-family: "SF Pro Display", system-ui, sans-serif;
+  width: 100%;
+  max-width: 420px;          /* slightly narrower -> feels tighter */
+  border-radius: 16px;
+  box-shadow: 0 32px 64px rgba(0,0,0,0.5);
+  position: relative;
+  /* height control */
+  max-height: 90vh;          /* never taller than viewport */
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;          /* hide overflow from inner scroll */
+  padding-top: 2.5rem;       /* top padding so close button isn't cramped */
+}
+
+/* Inner scrollable area (form + text) */
+.lead-modal-inner {
+  padding: 1rem 1.25rem 1.5rem;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Close (X) button */
+.lead-close-btn {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  background: transparent;
+  border: 0;
+  color: #060606;
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+/* Heading / subtext */
+.lead-modal-heading {
+  margin: 0 0 0.25rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #af0300;
+  line-height: 1.2;
+}
+
+.lead-modal-sub {
+  margin: 0 0 1rem;
+  font-size: 0.85rem;
+  color: #000;
+  line-height: 1.4;
+}
+
+/* Form layout */
+.lead-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;               /* tighter gap to reduce height */
+}
+
+/* rows that hold two fields */
+.lead-row {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+/* individual field */
+.lead-field {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 180px;
+  min-width: 0;
+}
+
+.lead-field label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #000;
+  margin-bottom: 0.3rem;
+}
+
+.lead-field input,
+.lead-field select {
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid rgba(0,0,0,0.15);
+  background: #fff;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  padding: 0.6rem 0.7rem;
+  color: #000;
+  font-family: inherit;
+  outline: none;
+}
+
+.lead-field input:focus,
+.lead-field select:focus {
+  border-color: #af0300;
+  box-shadow: 0 0 0 2px rgba(175,3,0,0.15);
+}
+
+/* Consent text */
+.lead-check {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-size: 0.7rem;
+  line-height: 1.4;
+  color: #000;
+}
+
+.lead-check input {
+  margin-top: 0.15rem;
+  flex-shrink: 0;
+}
+
+/* Submit button */
+.lead-submit-btn {
+  appearance: none;
+  border: 0;
+  border-radius: 8px;
+  background: #af0300;
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.9rem;
+  line-height: 1.2;
+  padding: 0.8rem 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  justify-content: center;
+  cursor: pointer;
+  width: 100%;
+  font-family: inherit;
+}
+
+.lead-submit-btn.loading {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* Disable page scroll when modal is open */
+body.modal-open {
+  overflow: hidden;
+}
+
+/* ---------- RESPONSIVE TWEAKS ---------- */
+
+/* phones / narrow screens */
+@media (max-width: 480px) {
+  .lead-modal {
+    max-width: 90vw;
+    border-radius: 12px;
+    max-height: 80vh;       /* even shorter on tiny screens */
+    padding-top: 2rem;
+  }
+
+  .lead-modal-inner {
+    padding: 1rem 1rem 1.25rem;
+  }
+
+  .lead-modal-heading {
+    font-size: 1rem;
+  }
+
+  .lead-modal-sub {
+    font-size: 0.8rem;
+  }
+
+  .lead-row {
+    flex-direction: column; /* stack inputs instead of 2 side-by-side */
+    gap: 0.75rem;
+  }
+
+  .lead-field {
+    flex: 1 1 auto;
+  }
+
+  .lead-check {
+    font-size: 0.7rem;
+  }
+
+  .lead-submit-btn {
+    font-size: 0.85rem;
+    padding: 0.7rem 0.9rem;
+  }
+
+  .lead-close-btn {
+    font-size: 0.9rem;
+    top: 0.6rem;
+    right: 0.6rem;
+  }
+}
+
+/* very short screens (landscape mobile etc.) */
+@media (max-height: 500px) {
+  .lead-modal {
+    max-height: 70vh;
+  }
+}
+
+/* POPUP FORM END */
+
 /* button.subscribe:hover {
   background-color: #af0300;
 } */
@@ -3085,14 +3344,14 @@ button.subscribe {
     left: 0;
     right: 0;
   }
-  .container {
+  .cta-container {
     grid-template-columns: 1fr;
     gap: 40px;
   }
 
   /* WE HELP BUSINESS CSS START */
   .help-grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
   }
 
   .help-left {
@@ -3302,6 +3561,15 @@ button.subscribe {
     border-top: none;
     padding-top: 0 !important;
   }
+  .about-team-desc {
+    line-height: 1 !important;
+  }
+  .about-team-heading{
+font-size: 26px;
+  }
+  .about-team-desc{
+font-size: 14px;
+  }
 
   /* SETUP CHECK_LIST RESPONSIVE CSS END */
 }
@@ -3362,6 +3630,9 @@ button.subscribe {
     font-size: 0.9rem;
     line-height: 1.4;
   }
+  .checkbox-group label {
+    font-size: 12px;
+  }
   /* WE HELP BUSINESS SECTION CSS END */
 }
 /* @media (min-width: 600px){
@@ -3385,10 +3656,21 @@ button.subscribe {
   .logo-slider img {
     height: 28px;
   }
-
+  .faq-section {
+    padding-top: 0%;
+  }
+.testimonials-section {
+  padding-top: 0%;
+}
+.process-section {
+  padding-top: 0%;
+}
+.pillars-section {
+  padding-top: 0%;
+}
   .trusted-heading {
     font-size: 1.25rem;
-    margin-bottom: 2rem;
+    margin-bottom: 4rem;
   }
   /* logo slider END */
   .impact-grid {
@@ -3413,14 +3695,7 @@ button.subscribe {
     flex-direction: column;
     gap: 20px;
   }
-  .cta-container {
-    background-color: #060606;
-    width: 100%;
-    /* display: grid
-; */
-    grid-template-columns: 1fr 1fr;
-    padding: 50px 10px;
-}
+
 .left-section h1 {
     font-size: 40px;
     font-weight: 800;
@@ -3432,10 +3707,12 @@ button.subscribe {
     .cta-container {
         background-color: #060606;
         width: 100%;
-        /* display: grid
-; */
-        grid-template-columns: 1fr 1fr;
+        display: grid;
+        grid-template-columns: 1fr;
         padding: 0px 10px 50px 10px;
+    }
+    .agreement{
+font-size: 12px;
     }
     .group label {
     /* font-family: Manrope; */
@@ -3445,6 +3722,51 @@ button.subscribe {
     text-align: left;
     color: #222;
 }
+.hero-subtext br{
+display: none;
+}
+.cta-button{
+  font-size: 14px;
+      padding: 0.7rem 1rem;
+      width: 125px;
+}
+.our-work-heading {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  margin-top: 0;
+}
+.work-slider {
+    display: flex
+;
+    flex-direction: column;
+    gap: 1.5rem;
+    overflow: hidden;
+    position: relative;
+}
+.whatwedo-section {
+    background-color: #060606;
+    padding-top: 0;
+    color: #ffffff;
+    text-align: center;
+}
+.whatwedo-header .section-heading {
+    /* font-size: clamp(2rem, 2vw + 1rem, 2.4rem); */
+    font-size: 2rem;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+.our-work-section {
+  padding-top: 0;
+}
+.testi-arrow {
+  font-size: .7rem;
+}
+ .about-team-desc {
+        line-height: 1.3 !important;
+    }
+
 }
 @media (max-width: 375px){
   .left-section h1 {
