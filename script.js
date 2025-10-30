@@ -46,7 +46,8 @@ function formatNumber(n, hasPercent) {
     // turn 1000000 -> "1M"
     const millions = n / 1000000;
     // keep no decimals for clean look like "1M", "9M"
-    return millions.toFixed(millions % 1 === 0 ? 0 : 1) + "M";
+    // return millions.toFixed(millions % 1 === 0 ? 0 : 1) + "M";
+      return parseFloat(millions.toFixed(1)) + "M";
   }
 
   // add commas for readability e.g. 4900 -> "4,900"
@@ -856,3 +857,91 @@ function toggleAccordion(header) {
     "newsletter-btn-mobile"      // mobile button id
   );
 })();
+
+// LOGO DESIGNED SCRIPT
+
+        
+const logoConfig = {
+    logo0: {
+        id: 'logo0',
+        path: '/assets/images/nr-black.png',
+        alt: 'Supr Daily Large Logo'
+    },
+    logo1: {
+        id: 'logo1',
+        path: '/assets/images/Kred_logo-removebg-preview.png',
+        alt: 'Kredbaharat'
+    },
+    logo2: {
+        id: 'logo2',
+        path: '/assets/images/Ojaldevelopers.webp',
+        alt: 'Ojaldevelopers'
+    },
+    logo3: {
+        id: 'logo3',
+        path: '/assets/images/aabo.png',
+        alt: 'Aabo'
+    },
+    logo4: {
+        id: 'logo4',
+        path: '/assets/images/MNS BLACK.png',
+        alt: 'Mynirvana Stay'
+    },
+    logo5: {
+        id: 'logo5',
+        path: '/assets/images/Sundeck.png',
+        alt: 'Sundeck'
+    },
+    logo6: {
+        id: 'logo6',
+        path: '/assets/images/rooted2.png',
+        alt: 'Rooted'
+    },
+    logo7: {
+        id: 'logo7',
+        path: '/assets/images/today-new-logo.png',
+        alt: 'Today'
+    }
+};
+
+// Function to update a logo
+function updateLogo(logoId, newLogoPath, newAltText = null) {
+    const logoContainer = document.getElementById(logoId);
+    if (!logoContainer) {
+        console.error(`Logo container with ID ${logoId} not found`);
+        return false;
+    }
+    
+    const logoImg = logoContainer.querySelector('img');
+    if (!logoImg) {
+        console.error(`No image found in logo container ${logoId}`);
+        return false;
+    }
+    
+    // Update the logo source
+    logoImg.src = newLogoPath;
+    
+    // Update alt text if provided
+    if (newAltText) {
+        logoImg.alt = newAltText;
+    }
+    
+    // Update the configuration
+    if (logoConfig[logoId]) {
+        logoConfig[logoId].path = newLogoPath;
+        if (newAltText) {
+            logoConfig[logoId].alt = newAltText;
+        }
+    }
+    
+    console.log(`Logo ${logoId} updated successfully to ${newLogoPath}`);
+    return true;
+}
+
+// Initialize all logos on page load
+document.addEventListener('DOMContentLoaded', () => {
+    // Apply all logos from configuration
+    Object.values(logoConfig).forEach(logo => {
+        updateLogo(logo.id, logo.path, logo.alt);
+    });
+});
